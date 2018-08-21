@@ -1,0 +1,74 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "editor.foldAll",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "editor.unfoldAll",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFolder"
+    },
+    {
+        "key": "ctrl+k ctrl+o",
+        "command": "workbench.action.openWorkspace"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "workbench.action.files.openFolder"
+    },
+    {
+        "key": "ctrl+k ctrl+o",
+        "command": "-workbench.action.files.openFolder"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "shift+enter",
+        "command": "extension.jumpy-word",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "Escape",
+        "command": "extension.jumpy-exit",
+        "when": "editorTextFocus && jumpy.isJumpyMode"
+    },
+    {
+        "key": "alt+up",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+up",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+up",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    }
+]

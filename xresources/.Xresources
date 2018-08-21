@@ -1,0 +1,85 @@
+Xft.dpi: 75
+Xft.antialias:  1
+Xft.autohint:   0
+Xft.hinting:    1
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
+Xft.rgba: rgb
+
+! Colors !
+
+*.background:    [99]#100000
+*.background2:   #100000
+*.foreground:    #cf9a71
+*.cursorColor:   #cf9a71
+
+! Black
+*.color8:        #100000
+*.color0:        #1e0a0a
+
+! Red
+*.color9:        #8c2536
+*.color1:        #6d1c2a
+
+! Green
+*.color10:       #608c55
+*.color2:        #3a5433
+
+! Yellow
+*.color11:       #b38446
+*.color3:        #9e743d
+
+! Blue
+*.color12:       #346399
+*.color4:        #1d3654
+
+! Magenta
+*.color13:       #8c516e
+*.color5:        #7d4963
+
+! Cyan
+*.color14:       #5c7b8c
+*.color6:        #3b4f5a
+
+! White
+*.color15:       #cf9a71
+*.color7:        #846248
+
+! Original Colors !
+
+!*.borderColor:  #000000
+!*.background:   #000000
+!*.foreground:   #888888
+!*.cursorColor:  #60463b
+
+! Black
+!*.color0:       #000000
+!*.color8:       #1e1917
+
+! Red
+!*.color1:       #91171f
+!*.color9:       #dd1c1a
+
+! Green
+!*.color2:       #7fb800
+!*.color10:      #3f7d20
+
+! Yellow
+!*.color3:       #e9ce2c
+!*.color11:      #fff275
+
+! Blue
+!*.color4:       #37718e
+!*.color12:      #1d4e89
+
+! Magenta
+!*.color5:       #f991cc
+!*.color13:      #e2afde
+
+! Cyan
+!*.color6:       #00b2ca
+!*.color14:      #68c5db
+
+! White
+!*.color7:       #ffffff
+!*.color15:      #dddbf1

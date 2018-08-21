@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# black
+export _color0="#020202"
+export _color8="#919191"
+
+# red
+export _color1="#0a0a0a"
+export _color9="#a9a9a9"
+
+# green
+export _color2="#131313"
+export _color10="#b7b7b7"
+
+# yellow
+export _color3="#222222"
+export _color11="#c4c4c4"
+
+# blue
+export _color4="#343434"
+export _color12="#d0d0d0"
+
+# magenta
+export _color5="#4c4c4c"
+export _color13="#dedede"
+
+# cyan
+export _color6="#636363"
+export _color14="#e9e9e9"
+
+# white
+export _color7="#777777"
+export _color15="#f6f6f6"
+
+export _background=${_color0}
+export _foreground=${_color8}
+export _cursorFG=${_foreground}
+export _cursorBG=${_background}

@@ -1,0 +1,156 @@
+# font pango:Gohu GohuFont 9
+
+# autostart {
+
+    exec_always --no-startup-id "setxkbmap tr"
+    exec_always --no-startup-id "xrdb ~/.Xresources"
+    exec_always --no-startup-id "feh --bg-scale ~/.wp"
+    exec --no-startup-id "polybar menfie"
+    exec --no-startup-id "thunar --daemon"
+    exec --no-startup-id "pulseaudio --start"
+    exec --no-startup-id "compton -b"
+    exec --no-startup-id "xbindkeys"
+    exec_always --no-startup-id "albert"
+    exec --no-startup-id "tilda"
+    exec --no-startup-id "redshift -t 7000:4000 -b 1.0:0.87"
+    exec --no-startup-id "dunst"
+
+# }
+
+# borders {
+
+    #new_window pixel 3
+    hide_edge_borders both
+    for_window [class="^.*"] border pixel 2
+    for_window [window_type=menu] border pixel 0
+    for_window [window_type=dropdown_menu] border pixel 0
+    for_window [window_type=popup_menu] border pixel 0
+    for_window [window_type=dialog] border pixel 0
+    for_window [window_type=splash] border pixel 0
+    for_window [window_type=tooltip] border pixel 0
+    for_window [class="albert"] border pixel 0
+
+# }
+
+# gaps {
+
+    #smart_gaps on
+    gaps inner 13
+    gaps outer 35
+
+# }
+
+
+# windows {
+
+    no_focus [class="Dunst"]
+    popup_during_fullscreen smart
+    focus_follows_mouse no
+    hide_edge_borders smart
+
+# }
+
+# colors {
+  # class                    border     backgr.    text       indicator  child_border
+    client.focused           #b7b7b7    #b7b7b7    #b7b7b7    #b7b7b7    #b7b7b7
+    client.focused_inactive  #343434    #343434    #343434    #343434    #343434
+    client.unfocused         #343434    #343434    #343434    #343434    #343434
+    # client.urgent            #000000    #000000    #000000    #000000    #000000
+    # client.placeholder       #000000    #000000    #000000    #000000    #000000
+
+    # client.background        #000000
+
+# }
+
+# keybindings {
+
+    # super/mod key
+    set $mod Mod4
+
+    # resize mode
+    bindsym $mod+r mode "resize"
+
+    # restart i3
+    bindsym $mod+Shift+r restart
+
+    # drag container
+    floating_modifier $mod
+
+    # toggle fullscreen
+    bindsym $mod+f fullscreen toggle
+
+    # kill focused container
+    bindsym $mod+Shift+q kill
+
+    # focus floating / tiling
+    bindsym $mod+space focus mode_toggle
+
+    # toggle floating
+    bindsym $mod+Shift+space floating toggle
+
+    # split horizontal
+    bindsym $mod+h split h
+
+    # split vertical
+    bindsym $mod+v split v
+
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # change focused container
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # move focused container
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+    # switch workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+
+    # move containers
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+
+    # exit i3
+    bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Wanna exit i3?' -b 'Yup!' 'i3-msg exit' -f Code New Roman"
+
+    bindsym $mod+shift+f  exec --no-startup-id thunar
+    bindsym $mod+Return exec --no-startup-id alacritty
+    bindsym $mod+l exec --no-startup-id betterlockscreen -l
+# }
+
+# modes {
+    mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+# }

@@ -1,0 +1,32 @@
+#!/bin/bash
+# Update alacritty config to apply Xresources color scheme
+# Stolen from https://www.reddit.com/r/unixporn/comments/8giij5/guide_defining_program_colors_through_xresources/dyfg9s3/
+
+# Target file
+target_file="$HOME/.config/alacritty/alacritty.yml"
+
+# copy input file to temporary file for black magic fuckery
+# (alacritty applies colors when the config file is written, so we want to do it
+# all in one write)
+cp $target_file.in $target_file.tmp
+
+# Numbered colors
+for i in {0..15}
+do
+    tmp="_color$i"
+    v="${!tmp}"
+    eval "sed -i 's/%cl${i}%/\x270x${v}\x27/g' $target_file.tmp";
+done
+
+# Named colors
+sed -i "s/%clbg%/\x270x${_background}\x27/g" $target_file.tmp
+sed -i "s/%clfg%/\x270x${_foreground}\x27/g" $target_file.tmp
+sed -i "s/%crsrfg%/\x270x${_cursorFG}\x27/g" $target_file.tmp
+sed -i "s/%crsrbg%/\x270x${_cursorBG}\x27/g" $target_file.tmp
+
+# Remove hashes
+sed -i "s/0x#/0x/g" $target_file.tmp
+
+# Finally, replace target file with our updated one
+rm $target_file
+mv $target_file.tmp $target_file
