@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/.dotfiles
+rm ~/.config/Code/User/settings.json && stow vscode
