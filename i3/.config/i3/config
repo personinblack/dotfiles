@@ -7,8 +7,6 @@
     exec_always --no-startup-id "feh --bg-scale ~/.wp"
     exec --no-startup-id "polybar menfie"
     exec --no-startup-id "thunar --daemon"
-    exec --no-startup-id "pulseaudio --start"
-    exec --no-startup-id "compton -b"
     exec --no-startup-id "xbindkeys"
     exec_always --no-startup-id "albert"
     exec --no-startup-id "tilda"
