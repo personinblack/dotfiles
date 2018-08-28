@@ -1,4 +1,6 @@
 #!/bin/bash
 
-cd ~/.dotfiles
-rm ~/.config/Code/User/settings.json && stow vscode
+cd ~/.config/Code/User/
+
+mv settings.json settings.json.old
+mv settings.json.old settings.json
