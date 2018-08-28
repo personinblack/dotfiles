@@ -1,0 +1,98 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 13,
+    "editor.fontFamily": "'Iosevka Slab Medium', 'Iosevka Slab Medium', 'Iosevka Slab Medium', 'Iosevka Slab Medium'",
+    "editor.fontLigatures": true,
+
+    "workbench.colorTheme": "blackness",
+    "workbench.iconTheme": "material-icon-theme",
+
+    "window.restoreWindows": "all",
+    "workbench.startupEditor": "none",
+    "extensions.ignoreRecommendations": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "extensions.autoUpdate": false,
+
+    "window.title": "imcoding ${folderName}",
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 1,
+    "editor.lineHeight": 19,
+    "editor.rulers": [ 100 ],
+    "editor.showFoldingControls": "always",
+    "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "bottom",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "block",
+    "workbench.editor.showTabs": false,
+    "workbench.statusBar.feedback.visible": false,
+    "zenMode.centerLayout": true,
+
+    "files.insertFinalNewline": true,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.tabSize": 4,
+    "editor.multiCursorModifier": "alt",
+    "editor.detectIndentation": false,
+    "editor.smoothScrolling": true,
+    "editor.mouseWheelScrollSensitivity": 2,
+    "editor.mouseWheelZoom": true,
+    "editor.dragAndDrop": false,
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+
+    "debug.internalConsoleOptions": "neverOpen",
+    "debug.showInStatusBar": "never",
+    "debug.openDebug": "neverOpen",
+
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "monospace",
+
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.enableCommitSigning": true,
+
+    "markdownlint.config": {
+        "MD033": false
+    },
+
+    "tslint.autoFixOnSave": false,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/node_modules": true
+    },
+
+    "gitlens.keymap": "alternate",
+    "gitlens.historyExplorer.enabled": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+
+    "scrolloff.scrolloff": 10,
+
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.referencesCodeLens.enabled": false,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "java.signatureHelp.enabled": true,
+    "java.format.enabled": false,
+    "java.autobuild.enabled": true,
+    "java.completion.overwrite": false,
+}
