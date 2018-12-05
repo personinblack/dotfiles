@@ -5,6 +5,9 @@ export PATH=$PATH:~/.scripts:~/.gem/ruby/2.5.0/bin
 export ZSH=/usr/share/oh-my-zsh
 
 export TERMINAL=/usr/bin/alacritty
+export XDG_CONFIG_HOME=~/.config
+
+export LC_ALL=en_US.UTF-8
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -38,7 +41,7 @@ ZSH_THEME="blackness"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -46,7 +49,7 @@ ZSH_THEME="blackness"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -60,11 +63,26 @@ ZSH_THEME="blackness"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gradle history sudo tmux wd)
+plugins=(git gradle history sudo tmux wd bundler)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# The following lines were added by compinstall
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**'
+zstyle ':completion:*' max-errors 3
+zstyle :compinstall filename '/home/menfie/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob
+# End of lines configured by zsh-newuser-install
 
 # Load colors
 source ~/.scripts/colors
@@ -77,3 +95,5 @@ source ~/.scripts/colors
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+rbdo ls
