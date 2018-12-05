@@ -1,15 +1,17 @@
+# i3 config file (v4)
 # font pango:Gohu GohuFont 9
 
 # autostart {
 
     exec_always --no-startup-id "setxkbmap tr"
     exec_always --no-startup-id "xrdb ~/.Xresources"
-    exec_always --no-startup-id "feh --bg-scale ~/.wp"
+    exec_always --no-startup-id "feh --bg-max --scale-down ~/.wp"
     exec --no-startup-id "polybar menfie"
     exec --no-startup-id "thunar --daemon"
     exec --no-startup-id "xbindkeys"
     exec_always --no-startup-id "albert"
     exec --no-startup-id "tilda"
+    exec --no-startup-id "/usr/lib/geoclue-2.0/demos/agent"
     exec --no-startup-id "redshift -t 7000:4000 -b 1.0:0.87"
     exec --no-startup-id "dunst"
 
@@ -19,7 +21,7 @@
 
     #new_window pixel 3
     hide_edge_borders both
-    for_window [class="^.*"] border pixel 2
+    for_window [class="^.*"] border pixel 3
     for_window [window_type=menu] border pixel 0
     for_window [window_type=dropdown_menu] border pixel 0
     for_window [window_type=popup_menu] border pixel 0
@@ -50,9 +52,9 @@
 
 # colors {
   # class                    border     backgr.    text       indicator  child_border
-    client.focused           #b7b7b7    #b7b7b7    #b7b7b7    #b7b7b7    #b7b7b7
-    client.focused_inactive  #343434    #343434    #343434    #343434    #343434
-    client.unfocused         #343434    #343434    #343434    #343434    #343434
+    client.focused           #f90086    #f90086    #f90086    #f90086    #f90086
+    client.focused_inactive  #777777    #777777    #777777    #777777    #777777
+    client.unfocused         #777777    #777777    #777777    #777777    #777777
     # client.urgent            #000000    #000000    #000000    #000000    #000000
     # client.placeholder       #000000    #000000    #000000    #000000    #000000
 
