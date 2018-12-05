@@ -30,8 +30,8 @@ window:
     y: 20
 
   # Window decorations
-  # Setting this to false will result in window without borders and title bar.
-  decorations: false
+  # Setting this to none will result in window without borders and title bar.
+  decorations: none
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 4
@@ -100,10 +100,6 @@ font:
 
 # Should display the render timer
 render_timer: false
-
-# Use custom cursor colors. If true, display the cursor in the cursor.foreground
-# and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: true
 
 # Colors
 colors:
@@ -208,28 +204,33 @@ mouse:
 
   # Faux Scrollback
   #
-  # The `faux_scrollback_lines` setting controls the number
+  # The `faux_scrolling_lines` setting controls the number
   # of lines the terminal should scroll when the alternate
   # screen buffer is active. This is used to allow mouse
   # scrolling for applications like `man`.
   #
-  # To disable this completely, set `faux_scrollback_lines` to 0.
-  faux_scrollback_lines: 3
+  # To disable this completely, set `faux_scrolling_lines` to 0.
+  faux_scrolling_lines: 3
+
+  hide_when_typing: true
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 dynamic_title: true
 
-hide_cursor_when_typing: true
+cursor:
+  # Cursor style
+  #
+  # Values for 'style':
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Block
 
-# Style of the cursor
-#
-# Values for 'cursor_style':
-# - Block
-# - Underline
-# - Beam
-cursor_style: Block
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
@@ -292,7 +293,8 @@ key_bindings:
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Add,      mods: Control, action: IncreaseFontSize             }
   - { key: Minus,    mods: Control, action: DecreaseFontSize             }
-  - { key: L,        mods: Control, action: Clear                        }
+  - { key: L,        mods: Control, action: ClearLogNotice               }
+  - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: T,        mods: Control|Shift,    chars: "tmux\n"             }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
