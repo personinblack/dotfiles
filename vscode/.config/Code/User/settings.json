@@ -4,20 +4,19 @@
     "editor.fontFamily": "'Iosevka Slab Medium', 'Iosevka Slab Medium', 'Iosevka Slab Medium', 'Iosevka Slab Medium'",
     "editor.fontLigatures": true,
 
-    "workbench.colorTheme": "blackness",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Darwin",
+    "workbench.iconTheme": "file-icons-colourless",
 
     "window.restoreWindows": "all",
     "workbench.startupEditor": "none",
     "extensions.ignoreRecommendations": true,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "extensions.autoUpdate": false,
+    "extensions.autoUpdate": true,
 
     "window.title": "imcoding ${folderName}",
     "window.menuBarVisibility": "toggle",
     "window.zoomLevel": 1,
-    "editor.lineHeight": 19,
     "editor.rulers": [ 100 ],
     "editor.showFoldingControls": "always",
     "editor.minimap.enabled": false,
@@ -32,6 +31,7 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 100,
     "editor.tabSize": 4,
+    "editor.lineHeight": 19,
     "editor.multiCursorModifier": "alt",
     "editor.detectIndentation": false,
     "editor.smoothScrolling": true,
@@ -43,6 +43,7 @@
         "comments": false,
         "strings": false
     },
+    "editor.tabCompletion": "onlySnippets",
 
     "debug.internalConsoleOptions": "neverOpen",
     "debug.showInStatusBar": "never",
@@ -60,11 +61,6 @@
     },
 
     "tslint.autoFixOnSave": false,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue"
-    ],
 
     "files.exclude": {
         "**/.git": true,
@@ -88,6 +84,17 @@
 
     "scrolloff.scrolloff": 10,
 
+    "todo-tree.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todo-tree.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    },
+
+    "liveshare.focusBehavior": "prompt",
+
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.referencesCodeLens.enabled": false,
     "java.errors.incompleteClasspath.severity": "ignore",
@@ -95,4 +102,34 @@
     "java.format.enabled": false,
     "java.autobuild.enabled": true,
     "java.completion.overwrite": false,
+
+    "ruby.useLanguageServer": true,
+
+    "[ruby]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [ 80 ],
+        "editor.wordWrapColumn": 80,
+    },
+
+    "[gemfile]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [ 80 ],
+        "editor.wordWrapColumn": 80,
+    },
+
+    "[haml]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [],
+        "editor.wordWrap": "off",
+    },
+
+    "blockhighlight.background": [
+        "145",
+        "145",
+        "145",
+        ".05"
+    ],
+    "breadcrumbs.enabled": true,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
 }
