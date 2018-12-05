@@ -6,45 +6,6 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 Xft.rgba: rgb
 
-! Colors !
-
-*.background:    [99]#100000
-*.background2:   #100000
-*.foreground:    #cf9a71
-*.cursorColor:   #cf9a71
-
-! Black
-*.color8:        #100000
-*.color0:        #1e0a0a
-
-! Red
-*.color9:        #8c2536
-*.color1:        #6d1c2a
-
-! Green
-*.color10:       #608c55
-*.color2:        #3a5433
-
-! Yellow
-*.color11:       #b38446
-*.color3:        #9e743d
-
-! Blue
-*.color12:       #346399
-*.color4:        #1d3654
-
-! Magenta
-*.color13:       #8c516e
-*.color5:        #7d4963
-
-! Cyan
-*.color14:       #5c7b8c
-*.color6:        #3b4f5a
-
-! White
-*.color15:       #cf9a71
-*.color7:        #846248
-
 ! Original Colors !
 
 !*.borderColor:  #000000

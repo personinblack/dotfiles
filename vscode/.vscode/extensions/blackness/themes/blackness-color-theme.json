@@ -88,12 +88,6 @@
 	},
 	"tokenColors": [
         {
-            "name": "UNKNOWN",
-            "settings": {
-                "foreground": "#FF0000"
-            }
-        },
-        {
             "name": "1",
             "scope": [
                 "keyword.control.export", // JS "export".
@@ -104,7 +98,7 @@
                 "punctuation.definition.comment", // Comment indicators like "/***/" and "//".
             ],
             "settings": {
-                "foreground": "#222222",
+                "foreground": "#222222"
             }
         },
         {
@@ -121,7 +115,7 @@
                 "storage.type.class", // JS "class" keyword.
             ],
             "settings": {
-                "foreground": "#343434",
+                "foreground": "#343434"
             }
         },
         {
