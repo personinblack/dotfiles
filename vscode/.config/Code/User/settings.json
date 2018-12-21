@@ -1,7 +1,5 @@
-// Place your settings in this file to overwrite the default settings
 {
     "editor.fontSize": 13,
-    "editor.fontFamily": "'Iosevka Slab Medium', 'Iosevka Slab Medium', 'Iosevka Slab Medium', 'Iosevka Slab Medium'",
     "editor.fontLigatures": true,
 
     "workbench.colorTheme": "Darwin",
@@ -34,7 +32,6 @@
     "editor.lineHeight": 19,
     "editor.multiCursorModifier": "alt",
     "editor.detectIndentation": false,
-    "editor.smoothScrolling": true,
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.mouseWheelZoom": true,
     "editor.dragAndDrop": false,
@@ -68,7 +65,6 @@
     },
 
     "gitlens.keymap": "alternate",
-    "gitlens.historyExplorer.enabled": true,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -119,8 +115,13 @@
 
     "[haml]": {
         "editor.tabSize": 2,
-        "editor.rulers": [],
-        "editor.wordWrap": "off",
+        "editor.wordWrap": "off"
+    },
+
+    "[typescript]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [ 80 ],
+        "editor.wordWrapColumn": 80,
     },
 
     "blockhighlight.background": [
@@ -132,4 +133,9 @@
     "breadcrumbs.enabled": true,
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
+    "editor.fontFamily": "'Dank Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "window.titleBarStyle": "native",
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": true,
 }
