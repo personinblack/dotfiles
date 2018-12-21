@@ -139,7 +139,7 @@
 
     bindsym $mod+shift+f  exec --no-startup-id thunar
     bindsym $mod+Return exec --no-startup-id alacritty
-    bindsym $mod+l exec --no-startup-id betterlockscreen -l
+    bindsym $mod+l exec --no-startup-id "glitchlock"
 # }
 
 # modes {
