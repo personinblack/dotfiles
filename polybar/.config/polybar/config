@@ -50,7 +50,7 @@ font-0 = curie:style=Italic
 
 ; borders {
 
-    border-bottom-size = 3
+    border-bottom-size = 0
     border-bottom-color = ${colors.twelve}
 
 ; }
