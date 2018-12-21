@@ -70,5 +70,10 @@
         "key": "alt+up",
         "command": "-workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "workbench.action.toggleCenteredLayout",
+        "when": "editorTextFocus"
     }
 ]
