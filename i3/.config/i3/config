@@ -21,7 +21,7 @@
 
     #new_window pixel 3
     hide_edge_borders both
-    for_window [class="^.*"] border pixel 3
+    for_window [class="^.*"] border pixel 0
     for_window [window_type=menu] border pixel 0
     for_window [window_type=dropdown_menu] border pixel 0
     for_window [window_type=popup_menu] border pixel 0
