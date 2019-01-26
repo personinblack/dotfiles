@@ -69,7 +69,7 @@ font:
   bold:
     family: curie # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    style: Bold
+    style: "Bold Italic"
 
   # The italic font face
   italic:
