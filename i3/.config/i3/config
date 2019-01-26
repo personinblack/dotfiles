@@ -29,6 +29,7 @@
     for_window [window_type=splash] border pixel 0
     for_window [window_type=tooltip] border pixel 0
     for_window [class="albert"] border pixel 0
+    for_window [class="Tilda"] border pixel 19
 
 # }
 
@@ -52,11 +53,11 @@
 
 # colors {
   # class                    border     backgr.    text       indicator  child_border
-    client.focused           #f90086    #f90086    #f90086    #f90086    #f90086
-    client.focused_inactive  #777777    #777777    #777777    #777777    #777777
-    client.unfocused         #777777    #777777    #777777    #777777    #777777
-    # client.urgent            #000000    #000000    #000000    #000000    #000000
-    # client.placeholder       #000000    #000000    #000000    #000000    #000000
+    client.focused           #000000    #000000    #08fbcf    #000000    #000000
+    client.focused_inactive  #000000    #000000    #08fbcf    #000000    #000000
+    client.unfocused         #000000    #000000    #08fbcf    #000000    #000000
+    # client.urgent            #000000    #000000    #08fbcf    #000000    #000000
+    # client.placeholder       #000000    #000000    #08fbcf    #000000    #000000
 
     # client.background        #000000
 
@@ -103,8 +104,8 @@
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
-
     # move focused container
+
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
@@ -140,14 +141,18 @@
     bindsym $mod+shift+f  exec --no-startup-id thunar
     bindsym $mod+Return exec --no-startup-id alacritty
     bindsym $mod+l exec --no-startup-id "glitchlock"
+    bindsym $mod+m exec --no-startup-id "~/appimages/tutanota"
+    bindsym $mod+p exec --no-startup-id "bitwarden-bin"
+    bindsym $mod+b exec --no-startup-id "firefox"
+    bindsym $mod+n exec --no-startup-id "trilium"
 # }
 
 # modes {
     mode "resize" {
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
 
         bindsym Return mode "default"
