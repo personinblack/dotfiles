@@ -172,7 +172,7 @@ label-discharging = %percentage:3:3%
 format-full = max
 format-full-foreground = ${colors.ten}
 
-animation-charging-framerate = 1000
+animation-charging-framerate = 0
 
 [settings]
 screenchange-reload = true
