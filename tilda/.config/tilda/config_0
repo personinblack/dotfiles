@@ -1,6 +1,6 @@
 tilda_config_version="1.3.3"
 command="firefox"
-font="curie 10"
+font="curie 8"
 key="<Super>quotedbl"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F11"

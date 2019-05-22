@@ -33,7 +33,6 @@ call plug#begin('~/.vim/plugged')
 " stylize {
   Plug 'scrooloose/nerdtree' " File Explorer
   Plug 'itchyny/lightline.vim' " Status Bar
-  Plug 'ryanoasis/vim-devicons' " Icon Pack
   Plug 'lilydjwg/colorizer' " Colors for Texts Like #rgba
 " }
 
@@ -48,6 +47,8 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'tpope/vim-surround' " Wrapper for Brackets and Other Stuff
   Plug 'editorconfig/editorconfig-vim' " Isolated Config Files for Projects and Languages
+
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}} " Conquer of Completion, intellisense engine
 " }
 
 call plug#end()

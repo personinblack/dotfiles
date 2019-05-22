@@ -91,3 +91,6 @@ let mapleader=","
 
 " coffee pasta
 set clipboard^=unnamedplus
+
+" always show signcolumns
+set signcolumn=yes

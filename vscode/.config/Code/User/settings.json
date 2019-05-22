@@ -3,7 +3,7 @@
     "editor.fontSize": 13,
     "editor.fontLigatures": true,
 
-    "workbench.colorTheme": "Darwin",
+    "workbench.colorTheme": "Popping and Locking Black Theme",
     "workbench.iconTheme": "file-icons-colourless",
 
     "window.restoreWindows": "all",
@@ -18,6 +18,7 @@
     "window.titleBarStyle": "native",
     "window.zoomLevel": 1,
     "editor.rulers": [ 100 ],
+    "editor.lineNumbers": "on",
     "editor.showFoldingControls": "always",
     "editor.minimap.enabled": false,
     "editor.snippetSuggestions": "bottom",
@@ -83,6 +84,12 @@
         "editor.wordWrap": "off"
     },
 
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [ 80 ],
+        "editor.wordWrapColumn": 80,
+    },
+
     "[typescript]": {
         "editor.tabSize": 2,
         "editor.rulers": [ 80 ],
@@ -101,7 +108,11 @@
 
     "files.exclude": {
         "**/.git": true,
-        "**/node_modules": true
+        "**/node_modules": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
 
     "gitlens.keymap": "alternate",
@@ -120,7 +131,7 @@
         "suppressWelcomeNotice": true
     },
 
-    "scrolloff.scrolloff": 10,
+    "scrolloff.scrolloff": 15,
 
     "todo-tree.defaultHighlight": {
         "foreground": "green",
@@ -139,4 +150,5 @@
         "145",
         ".05"
     ],
+    "liveshare.featureSet": "insiders",
 }
