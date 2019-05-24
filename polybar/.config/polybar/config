@@ -74,11 +74,11 @@ type = internal/xwindow
 label = "%title:19:19%"
 format-prefix = "window = '"
 format-suffix = "'"
-format-prefix-foreground = ${colors.thirteen}
-format-suffix-foreground = ${colors.thirteen}
-label-foreground = ${colors.ten}
+format-prefix-foreground = ${colors.foreground}
+format-suffix-foreground = ${colors.foreground}
+label-foreground = ${colors.fourteen}
 label-empty = "                   "
-label-empty-foreground = ${colors.ten}
+label-empty-foreground = ${colors.fourteen}
 
 [module/date]
 type = internal/date
@@ -89,11 +89,11 @@ date = "%d-%m-%Y"
 time = "%H:%M"
 
 format-suffix = "'"
-format-suffix-foreground = ${colors.thirteen}
+format-suffix-foreground = ${colors.foreground}
 
-format-foreground = ${colors.ten}
+format-foreground = ${colors.fourteen}
 format-prefix = "date = '"
-format-prefix-foreground = ${colors.thirteen}
+format-prefix-foreground = ${colors.foreground}
 format-underline =
 
 label = %date% %time%
@@ -109,12 +109,12 @@ headphone-id = 1
 
 format-volume = <label-volume><ramp-volume>
 label-volume =
-label-volume-foreground = ${colors.ten}
+label-volume-foreground = ${colors.fourteen}
 
 label-muted = nil
-label-muted-foreground = ${colors.ten}
+label-muted-foreground = ${colors.fourteen}
 
-ramp-volume-foreground = ${colors.ten}
+ramp-volume-foreground = ${colors.fourteen}
 
 ramp-volume-0 = 000
 ramp-volume-1 = 005
@@ -139,11 +139,11 @@ ramp-volume-19 = 095
 ramp-volume-20 = 100
 
 format-muted-prefix = "volume = "
-format-muted-foreground = ${colors.thirteen}
+format-muted-foreground = ${colors.foreground}
 format-volume-prefix = "volume = "
-format-volume-foreground = ${colors.thirteen}
+format-volume-foreground = ${colors.foreground}
 format-volume-suffix =
-format-volume-suffix-foreground = ${colors.thirteen}
+format-volume-suffix-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
@@ -155,22 +155,22 @@ poll-interval = 3
 format-full-prefix = "battery = "
 format-charging-prefix = "battery = "
 format-discharging-prefix = "battery = "
-format-full-prefix-foreground = ${colors.thirteen}
-format-charging-prefix-foreground = ${colors.thirteen}
-format-discharging-prefix-foreground = ${colors.thirteen}
+format-full-prefix-foreground = ${colors.foreground}
+format-charging-prefix-foreground = ${colors.foreground}
+format-discharging-prefix-foreground = ${colors.foreground}
 
 format-charging = <label-charging>
-format-charging-foreground = ${colors.ten}
+format-charging-foreground = ${colors.fourteen}
 
 label-charging = %percentage:3:3%
 
 format-discharging = <label-discharging>
-format-discharging-foreground = ${colors.ten}
+format-discharging-foreground = ${colors.fourteen}
 
 label-discharging = %percentage:3:3%
 
 format-full = max
-format-full-foreground = ${colors.ten}
+format-full-foreground = ${colors.fourteen}
 
 animation-charging-framerate = 0
 
