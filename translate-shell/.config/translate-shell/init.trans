@@ -1,8 +1,0 @@
-{
- :translate-shell "0.9.0"
- :verbose         true
- :show-original   false
- :view true
- :hl              "en"
- :tl              "tr"
-}
