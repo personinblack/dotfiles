@@ -32,7 +32,7 @@ export _color14="#52ceb7"
 export _color7="#b38d6e"
 export _color15="#edc09c"
 
-export _background="#210000"
+export _background="#100000"
 export _foreground="#e1ac7f"
 export _cursorFG=${_foreground}
 export _cursorBG=${_background}
