@@ -10,15 +10,15 @@
   border: none;
   font-family:"Iosevka Slab Light";
   font-weight: 10;
-	color : #686868;
-	background-color: #020202;
+	color : #e1ac7f;
+	background-color: #100000;
 }
 
 #frame {
 	padding: 12px;
 	border-radius: 0px;
-	background-color: #020202;
-	border: 2px solid #878787;
+	background-color: #100000;
+	border: 1px solid #e1ac7f;
 
   /* Workaround for Qt to get fixed size button*/
 	min-width:640px;
@@ -27,13 +27,13 @@
 
 #inputLine {
     font-size: 36px;
-	selection-color: #020202;
-	selection-background-color: #878787;
+	selection-color: #100000;
+	selection-background-color: #e1ac7f;
 	background-color: transparent;
 }
 
 #settingsButton {
-	color: #4c4c4c;
+	color: #e1ac7f;
 	background-color: transparent;
     padding: 8px;
 
@@ -47,11 +47,11 @@
 /********** ListViews ************/
 
 QListView {
-	selection-color: #020202;
+	selection-color: #100000;
 }
 
 QListView::item:selected {
-	background: #878787;
+	background: #e1ac7f;
 }
 
 QListView QScrollBar:vertical  {
@@ -60,7 +60,7 @@ QListView QScrollBar:vertical  {
 }
 
 QListView QScrollBar::handle:vertical  {
-	background: #484848;
+	background: #e1ac7f;
 	min-height: 24px;
 }
 
