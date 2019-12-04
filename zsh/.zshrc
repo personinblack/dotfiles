@@ -6,6 +6,18 @@
 # GitHub: https://github.com/personinblack/dotfiles
 #
 
+#       "' SSH AGENT '" {{{
+
+
+if [ ! -S /home/menfie/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" /home/menfie/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=/home/menfie/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
+
+# }}}
+
 #       "' ENVIRONMENT VARIABLES '" {{{
 
 
