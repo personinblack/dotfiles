@@ -1,5 +1,0 @@
-#!/bin/sh
-
-sleep $1 && shift &&
-notify-send -u normal -t 0 "Reminder" "$*" &&
-a="$*" &

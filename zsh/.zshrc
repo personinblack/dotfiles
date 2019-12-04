@@ -1,98 +1,98 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$PATH:~/.scripts
+# vim:fileencoding=utf-8:foldmethod=marker:softtabstop=2:shiftwidth=2
+#
+#          ZSH Configuration File
+#
+# Author: personinblack
+# GitHub: https://github.com/personinblack/dotfiles
+#
+
+#       "' ENVIRONMENT VARIABLES '" {{{
+
+
+export PATH=$PATH
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+# }}}
+
+#       "' GENERAL ZSH AND OH-MY-ZSH '" {{{
+
 
 # Path to your oh-my-zsh installation.
-export ZSH=/usr/share/oh-my-zsh
+ZSH=/usr/share/oh-my-zsh/
 
-export XDG_CONFIG_HOME=~/.config
+  # Config Variables
+# Set theme
+ZSH_THEME="null"
 
-export LC_ALL=en_US.UTF-8
+# Disable updates
+DISABLE_AUTO_UPDATE="true"
 
-#ZSH_TMUX_AUTOSTART=true
+# Enable auto command correction
+ENABLE_CORRECTION="true"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="blackness"
+# Red dot while waiting
+COMPLETION_WAITING_DOTS="true"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+# Faster Git repository checks
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HYPHEN_INSENSITIVE="true"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git gradle history sudo tmux wd bundler)
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=5000
+
+plugins=(git copyfile sudo tmux zsh-autosuggestions)
+
+setopt appendhistory autocd extendedglob
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# }}}
 
-# The following lines were added by compinstall
-zstyle ':completion:*' completer _complete _ignored _approximate
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**'
+#       "' COMPLETION '" {{{
+
+
+zstyle ':completion:*' completer _expand _complete _ignored _match _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' match-original both
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'l:|=* r:|=*'
 zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' original true
+zstyle ':completion:*' select-prompt %SSS: %p%s
 zstyle :compinstall filename '/home/menfie/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd extendedglob
-# End of lines configured by zsh-newuser-install
 
-# Load colors
-source ~/.scripts/colors
+# }}}
 
-# Load chruby
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
+#       "' ALIASES '" {{{
 
-# RBDO
-rbdo ls
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+alias l="exa"
+alias lsa="exa -la"
+alias tree="exa --tree"
+alias :q=exit
+eval $(thefuck --alias)
+
+# }}}
+
+if [[ ! $TMUX ]]; then
+  tmux new -As def; exit
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

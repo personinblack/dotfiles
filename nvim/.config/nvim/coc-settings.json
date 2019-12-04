@@ -1,0 +1,19 @@
+{
+    "codeLens.enable": true,
+
+    "coc.preferences.diagnostic.displayByAle": true,
+
+    "solargraph.completion": true,
+    "solargraph.definitions": true,
+    "solargraph.diagnostics": true,
+    "solargraph.references": true,
+    "solargraph.hover": true,
+
+    "tsserver.formatOnType": false,
+
+    "javascript.suggestionActions.enabled": false,
+
+    "diagnostic-languageserver.filetypes": {
+        "ruby": "solargraph"
+    }
+}

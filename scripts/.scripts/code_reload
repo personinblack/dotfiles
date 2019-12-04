@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd ~/.config/Code/User/
-
-mv settings.json settings.json.old
-mv settings.json.old settings.json
