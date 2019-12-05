@@ -1,0 +1,6 @@
+[user]
+	email = berkay@tuta.io
+	name = personinblack
+	signingkey = berkay@tuta.io
+[commit]
+	gpgsign = true
