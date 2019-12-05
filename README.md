@@ -5,12 +5,17 @@ on the internet. these are what i use:
 
 - *zsh* as shell with *oh-my-zsh* for better management (i install *oh-my-zsh* by saying
   `sudo stow oh-my-zsh -t /usr/share/oh-my-zsh`)
-- *tmux* as terminal multiplexer
+- *tmux* as terminal multiplexer with tmux plugin manager (tpm)
 - *xinit* for starting an x session
 - *dwm* as window manager
 - *st* as terminal emulator
 - *neovim* as text editor and IDE
 - *aurafetch* for l33t looking screenshots
+- *exa* as an ls replacement
+- *thefuck* for when i fuck up
+- *scrot* for screenshots
+- *firefox* as web browser
+- *discord* for chatting with friends
 
 ## installation
 
