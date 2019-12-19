@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "curie:style=Medium:antialias=true:autohint=true";
+//static char *font = "curie:style=Medium:antialias=true:autohint=true";
+static char *font = "Iosevka Term:style=Light:antialias=true:autohint=true:size=13";
 static int borderpx = 5;
 
 /*
@@ -117,29 +118,28 @@ unsigned int tabspaces = 4;
  */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#000000",
-	"#1a1a1a",
-	"#212121",
-	"#292929",
-	"#3d3d3d",
-	"#636363",
-	"#6a747a",
-	"#2e263b",
+	"#373c40",
+	"#ff5454",
+	"#8cc85f",
+	"#e3c78a",
+	"#80a0ff",
+	"#ce76e8",
+	"#7ee0ce",
+	"#de935f",
 
 	/* 8 bright colors */
-	"#7a7a7a",
-	"#808080",
-	"#8f8f8f",
-	"#949494",
-	"#9e9e9e",
-	"#c4c4c4",
-	"#849dad",
-	"#853838",
+	"#f09479",
+	"#f74782",
+	"#42cf89",
+	"#cfcfb0",
+	"#78c2ff",
+	"#ae81ff",
+	"#85dc85",
+	"#e2637f",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#949494",
 };
 
 
@@ -147,10 +147,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 256;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 3;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 251;
+unsigned int defaultbg = 232;
+static unsigned int defaultcs = 4;
+static unsigned int defaultrcs = 247;
 
 /*
  * Default shape of cursor
