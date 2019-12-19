@@ -218,6 +218,9 @@ set wildignorecase
 set ignorecase
 set smartcase
 
+" Set correct shell
+set shell=$SHELL\ -l
+
 
   " Fixes
 " Vim update faster (for git-gutter, syntax checks, etc.)
