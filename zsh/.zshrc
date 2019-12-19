@@ -99,7 +99,12 @@ alias l="exa"
 alias lsa="exa -la"
 alias tree="exa --tree"
 alias :q=exit
-eval $(thefuck --alias)
+alias aura="aura -c 'c4 c6'"
+if command -v thefuck >/dev/null 2>&1; then
+  fuck() {
+    eval "$(thefuck --alias)" && fuck
+  }
+fi
 
 # }}}
 
