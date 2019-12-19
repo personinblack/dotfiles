@@ -21,7 +21,7 @@ ssh-add -l > /dev/null || ssh-add
 #       "' ENVIRONMENT VARIABLES '" {{{
 
 
-export PATH=$PATH
+export PATH=$PATH:~/.local/bin
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
