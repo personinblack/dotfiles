@@ -2,6 +2,7 @@
 
 discord &
 firefox &
+feh --bg-max ~/.wp &
 
 while :
 do
