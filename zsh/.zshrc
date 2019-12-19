@@ -103,7 +103,7 @@ eval $(thefuck --alias)
 
 # }}}
 
-if [[ ! $TMUX ]]; then
+if [[ $TERM != linux && ! $TMUX ]]; then
   tmux new -As def; exit
 fi
 
