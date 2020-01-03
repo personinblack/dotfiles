@@ -269,6 +269,7 @@ let g:indentLine_color_term = 0
 augroup JSON_NO_INDENT
     au!
     autocmd BufEnter *.json IndentLinesDisable
+    autocmd BufEnter *.md   IndentLinesDisable
 augroup END
 
 
