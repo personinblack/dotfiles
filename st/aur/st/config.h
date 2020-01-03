@@ -6,7 +6,10 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "curie:style=Medium:antialias=true:autohint=true";
-static char *font = "Iosevka Term:style=Light:antialias=true:autohint=true:size=13";
+static char *font = "Iosevka Term:style=Light:antialias=true:autohint=true:size=12";
+static char *font2[] = {
+	"Symbola:pixelsize=12:antialias=true:autohint=true",
+};
 static int borderpx = 5;
 
 /*
@@ -83,33 +86,8 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 4;
 
-
-/*
- * #1A1A1A
- * #212121
- * #292929
- * #2E263B
- * #380D0D
- * #3D3D3D
- * #616161
- * #636363
- * #6A747A
- * #7A7A7A
- * #7F8C94
- * #808080
- * #849DAD
- * #853838
- * #8F8F8F
- * #949494
- * #999988
- * #9E9E9E
- * #A9C8D9
- * #C4C4C4
- * #CCCCCC
- * #D1D1D1
- * #D9D9D9
- * #DBDBDB
- */
+/* bg opacity */
+float alpha = 0.85;
 
 /* 
  * Terminal colors (16 first used in escape sequence)
