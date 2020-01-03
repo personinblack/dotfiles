@@ -53,6 +53,7 @@ Plug 'dense-analysis/ale'
   " Syntactic Language
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
+Plug 'godlygeek/tabular' " Required for markdown
 Plug 'plasticboy/vim-markdown'
 " Ruby end stuff
 Plug 'tpope/vim-endwise'
