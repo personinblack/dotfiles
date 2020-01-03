@@ -12,24 +12,33 @@ static const char *screenshot[] = { "/usr/bin/scrot", "-e", "mv $f ~/screenshots
 static const char *screenshot_select[] = { "/usr/bin/scrot", "-e", "mv $f ~/screenshots", "--select", NULL };
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "scientifica:style=Medium", "Noto Color Emoji:style=Regular" };
-static const char dmenufont[]       = "scientifica:style=Medium";
-static const char col_black[]       = "#000000";
-static const char col_gray[]        = "#8f8f8f";
-static const char col_white[]       = "#ffffff";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray , col_black, col_gray },
-	[SchemeSel]  = { col_white, col_black, col_white  },
+static const unsigned int borderpx      = 1;        /* border pixel of windows */
+static const unsigned int gappx         = 10;        /* gaps between windows */
+static const unsigned int snap          = 32;       /* snap pixel */
+static const int showbar                = 1;        /* 0 means no bar */
+static const int topbar                 = 1;        /* 0 means bottom bar */
+static const char *fonts[]              = { "scientifica:style=Bold:size=13", "Noto Color Emoji:style=Regular:size=12" };
+static const char dmenufont[]           = "scientifica:style=Bold:size=13";
+static const unsigned int baralpha      = 0xB4;
+static const unsigned int borderalpha   = OPAQUE;
+static const char col_selbg[]           = "#f74782";
+static const char col_normbg[]          = "#080808";
+static const char col_selfg[]           = "#f74782";
+static const char col_normfg[]          = "#cfcfb0";
+static const char col_black[]           = "#080808";
+static const char *colors[][3]          = {
+	/*               fg             bg          border      */
+	[SchemeNorm] = { col_normfg,    col_normbg, col_normbg  },
+	[SchemeSel]  = { col_selfg,     col_normbg, col_selbg   },
+};
+static const unsigned int alphas[][3]   = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
-static const char *tags[] = { "st", "ff", "dc", "vlc", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "st", "ff", "dc", "04", "05", "06", "07", "08", "mv" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,7 +47,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "vlc",      NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "vlc",      NULL,       NULL,       1 << 10,      0,           -1 },
 	{ "discord",  NULL,       NULL,       1 << 2,       0,           -1 },
 };
 
@@ -49,7 +58,7 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "",      tile },    /* first entry is default */
+	{ "T",      tile },    /* first entry is default */
 	{ "F",      NULL },    /* no layout function means floating behavior */
 	{ "M",      monocle },
 };
@@ -69,7 +78,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
     "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont,
-    "-nb", col_black, "-nf", col_gray, "-sb", col_white, "-sf", col_black, NULL
+    "-nb", col_normbg, "-nf", col_normfg, "-sb", col_selfg, "-sf", col_black, NULL
 };
 static const char *termcmd[]  = { "st", NULL };
 
