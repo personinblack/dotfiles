@@ -108,8 +108,14 @@ fi
 
 # }}}
 
+#       "' FZF '" {{{
+
+
+export FZF_DEFAULT_COMMAND='rg --files'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# }}}
+
 if [[ $TERM != linux && ! $TMUX ]]; then
   tmux new -As def; exit
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
