@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/large_data/backup_suse/.dotfiles/zsh'
 let g:netrw_dirhist_9='/home/menfie'
 let g:netrw_dirhist_8='/home/menfie/.dotfiles/zsh'
 let g:netrw_dirhist_7='/home/menfie/.dotfiles'
