@@ -89,7 +89,7 @@ nmap >h <Plug>GitGutterNextHunk
 nmap <h <Plug>GitGutterPrevHunk
 
 " Fzf search file contents
-noremap <leader>a :Rg<cr>
+noremap <leader>a :Grep<cr>
 
 " Fzf search file names
 noremap <leader>s :Files<cr>
@@ -341,17 +341,15 @@ let g:ale_linters = {'rust': ['rls']}
 let g:fzf_layout = { 'down': '~40%' }
 
 " File content search format
-command! -bang -nargs=* Rg
+command! -bang -nargs=* Grep
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '
   \    .shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:40%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+  \   fzf#vim#with_preview('right:60%'), <bang>0)
 
 " File name search format
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:60%'), <bang>0)
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
