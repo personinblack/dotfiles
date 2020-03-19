@@ -96,9 +96,6 @@ noremap <leader>a :Grep<cr>
 " Fzf search file names
 noremap <leader>s :Files<cr>
 
-" Coc references
-nmap <leader>r <Plug>(coc-references)
-nmap <leader>f <Plug>(coc-rename)
 
 
   " Remapping
@@ -132,6 +129,17 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Goyo toggle
 map <C-z> :Goyo<CR>
+
+
+  " Plugin Other
+" Coc execute codeLens
+nmap <leader>t <Plug>(coc-codelens-action)
+" Coc rename
+nmap <leader>r <Plug>(coc-rename)
+" Coc codeaction
+nmap <leader>f <Plug>(coc-codeaction)
+" Coc references
+nmap <leader>d <Plug>(coc-references)
 
 
 " }}}
