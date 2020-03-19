@@ -97,7 +97,6 @@ noremap <leader>a :Grep<cr>
 noremap <leader>s :Files<cr>
 
 
-
   " Remapping
 " >/< keys (pardon my language)
 map ç >
