@@ -17,6 +17,8 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'christoomey/vim-tmux-navigator'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
+" Git branch viewer
+Plug 'rbong/vim-flog'
 " Editorconfig
 Plug 'editorconfig/editorconfig-vim'
 " Correct project root
