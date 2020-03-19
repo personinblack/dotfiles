@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-//static char *font = "curie:style=Medium:antialias=true:autohint=true";
-static char *font = "Iosevka Term:style=Light:antialias=true:autohint=true:size=12";
+static char *font = "scientifica:style=Medium";
+//static char *font = "Iosevka Term:style=Light:antialias=true:autohint=true:size=12";
 static char *font2[] = {
 	"Symbola:pixelsize=12:antialias=true:autohint=true",
 };
