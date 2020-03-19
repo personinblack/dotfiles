@@ -9,6 +9,8 @@
     "solargraph.references": true,
     "solargraph.hover": true,
 
+    "rust-analyzer.serverPath": "~/.cargo/bin/ra_lsp_server",
+
     "tsserver.formatOnType": false,
 
     "javascript.suggestionActions.enabled": false,
