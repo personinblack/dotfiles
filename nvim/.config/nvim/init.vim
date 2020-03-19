@@ -121,6 +121,11 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 
+  " Function Calls
+" Toggle transparency
+nnoremap <C-t> : call Toggle_transparent()<CR>
+
+
   " Plugin Toggle
 " ALEHover
 nnoremap <silent> K :ALEHover<CR>
@@ -149,6 +154,24 @@ nmap <leader>d <Plug>(coc-references)
 
 " Bind :Q to :q
 command! Q q
+
+
+"}}}
+
+        "' FUNCTIONS '" {{{
+
+
+" Transparency
+let t:is_transparent = 0
+function! Toggle_transparent()
+    if t:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 1
+    else
+        set background=dark
+        let t:is_transparent = 0
+    endif
+endfunction
 
 
 "}}}
@@ -196,19 +219,6 @@ set listchars+=nbsp:░
 " Natural split behavior
 set splitbelow
 set splitright
-
-" Transparency
-let t:is_transparent = 0
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_transparent = 0
-    endif
-endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
 
 
   " Code Style
