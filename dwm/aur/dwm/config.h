@@ -17,8 +17,8 @@ static const unsigned int gappx         = 10;        /* gaps between windows */
 static const unsigned int snap          = 1;       /* snap pixel */
 static const int showbar                = 1;        /* 0 means no bar */
 static const int topbar                 = 1;        /* 0 means bottom bar */
-static const char *fonts[]              = { "scientifica:style=Bold:size=13", "Noto Color Emoji:style=Regular:size=12" };
-static const char dmenufont[]           = "scientifica:style=Bold:size=13";
+static const char *fonts[]              = { "scientifica:size=1:style=Bold", "Noto Color Emoji:style=Regular:size=12" };
+static const char dmenufont[]           = "scientifica:size=1:style=Bold";
 static const unsigned int baralpha      = 0xB4;
 static const unsigned int borderalpha   = OPAQUE;
 static const char col_selbg[]           = "#f74782";
