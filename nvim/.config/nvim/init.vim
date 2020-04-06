@@ -360,9 +360,10 @@ let g:ale_linters = {'rust': ['rls']}
 let g:fzf_layout = { 'down': '~40%' }
 
 " File content search format
+let fzfcmd = $FZF_DEFAULT_NF_COMMAND
 command! -bang -nargs=* Grep
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '
+  \   fzfcmd.' --column --line-number --no-heading --color=always --smart-case '
   \    .shellescape(<q-args>), 1,
   \   fzf#vim#with_preview('right:60%'), <bang>0)
 
