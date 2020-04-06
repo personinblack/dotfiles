@@ -44,6 +44,9 @@ thefuck --alias | source
 
 alias l="exa"
 alias lsa="exa -la"
+alias tree="exa --tree"
+alias :q=exit
+alias aura="aura -c 'c4 c6'"
 
 # }}}
 
