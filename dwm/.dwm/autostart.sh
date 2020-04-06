@@ -3,7 +3,7 @@
 picom --experimental-backends -b &
 discord &
 firefox &
-feh --bg-max ~/.wp &
+feh --bg-max ~/.dotfiles/wallpaper/.wp &
 
 while :
 do
