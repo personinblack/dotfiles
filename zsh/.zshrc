@@ -110,7 +110,10 @@ fi
 
 
 export FZF_DEFAULT_COMMAND='rg --files'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+FDIR="/usr/share/fzf"
+[ -f $FDIR/key-bindings.zsh ] && source $FDIR/key-bindings.zsh\
+                              && source $FDIR/completion.zsh
 
 # }}}
 

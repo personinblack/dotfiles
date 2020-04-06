@@ -42,7 +42,7 @@ Plug 'yggdroot/indentline'
 " Distraction-free writing
 Plug 'junegunn/goyo.vim'
 " FZF
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
 Plug 'junegunn/fzf.vim'
 
 
