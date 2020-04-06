@@ -42,11 +42,11 @@ thefuck --alias | source
 #       "' ALIASES '" {{{
 
 
-alias l="exa"
-alias lsa="exa -la"
-alias tree="exa --tree"
-alias :q=exit
-alias aura="aura -c 'c4 c6'"
+abbr --add l "exa"
+abbr --add lsa "exa -la"
+abbr --add tree "exa --tree"
+abbr --add :q exit
+abbr --add aura "aura -c 'c4 c6'"
 
 # }}}
 
