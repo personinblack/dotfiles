@@ -11,8 +11,6 @@ SETUVAR Z_DATA:/home/menfie/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/menfie/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:/home/menfie
 SETUVAR __fish_initialized:3100
-SETUVAR _fish_abbr_l:exa
-SETUVAR _fish_abbr_lsa:exa\x20\x2dal
 SETUVAR fish_color_autosuggestion:555
 SETUVAR fish_color_cancel:\x2dbred
 SETUVAR fish_color_command:yellow

@@ -39,6 +39,14 @@ thefuck --alias | source
 
 # }}}
 
+#       "' ALIASES '" {{{
+
+
+alias l="exa"
+alias lsa="exa -la"
+
+# }}}
+
 #       "' FZF '" {{{
 
 
