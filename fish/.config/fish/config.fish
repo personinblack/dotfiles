@@ -22,6 +22,7 @@ end
 set -xg PATH $HOME/.cargo/bin $HOME/.local/bin $PATH
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_CACHE_HOME $HOME/.cache
+set -xg XDG_DATA_HOME $HOME/.local/share
 
 if set -q SSH_CONNECTION
   set -xg EDITOR "vim"
@@ -68,8 +69,18 @@ set -xg LESSHISTFILE "-"
 set -xg TERMINFO "$XDG_DATA_HOME/terminfo"
 set -xg CUDA_CACHE_PATH "$XDG_CACHE_HOME"/nv
 set -xg CARGO_HOME "$XDG_DATA_HOME"/cargo
+set -xg BUNDLE_USER_CONFIG "$XDG_CONFIG_HOME"/bundle
+set -xg BUNDLE_USER_CACHE "$XDG_CACHE_HOME"/bundle
+set -xg BUNDLE_USER_PLUGIN "$XDG_DATA_HOME"/bundle
+set -xg DOCKER_CONFIG "$XDG_CONFIG_HOME"/docker
+set -xg GEM_HOME "$XDG_DATA_HOME"/gem
+set -xg GEM_SPEC_CACHE "$XDG_CACHE_HOME"/gem
+set -xg GNUPGHOME "$XDG_DATA_HOME"/gnupg
+set -xg RUSTUP_HOME "$XDG_DATA_HOME"/rustup
+set -xg GOPATH "$XDG_DATA_HOME"/go
 
 alias tmux "tmux -f $HOME/.config/tmux/tmux.conf"
+alias nvidia-settings "nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings"
 
 # }}}
 

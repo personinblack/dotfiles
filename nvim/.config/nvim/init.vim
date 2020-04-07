@@ -232,7 +232,7 @@ set shiftwidth=4
   " Editor Improvements
 " Keep the undo history
 set undofile
-set undodir=~/.nvim/undo
+set undodir=~/.local/share/nvim/undo
 
 " Make some space around the cursor
 set scrolloff=10
