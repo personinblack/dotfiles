@@ -74,7 +74,7 @@ alias tmux "tmux -f $HOME/.config/tmux/tmux.conf"
 
 
 if test "$TERM" != "linux" && not set -q TMUX
-  tmux new -As def
+  exec tmux -f $HOME/.config/tmux/tmux.conf new -As def
   exit
 end
 
