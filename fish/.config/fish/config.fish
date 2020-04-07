@@ -19,8 +19,8 @@ end
 #       "' ENVIRONMENT VARIABLES '" {{{
 
 
-set -xg PATH $HOME/.cargo/bin $PATH
-set -xg PATH $HOME/.local/bin $PATH
+set -xg PATH $HOME/.cargo/bin $HOME/.local/bin $PATH
+set -xg XDG_DATA_HOME $HOME/.config
 
 if set -q SSH_CONNECTION
   set -xg EDITOR "vim"
@@ -59,11 +59,22 @@ set -xg FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 
 # }}}
 
+#       "' CLEANUP '" {{{
+
+
+set -xg XAUTHORITY "$XDG_RUNTIME_DIR/Xauthority"
+set -xg LESSHISTFILE "-"
+set -xg TERMINFO "$XDG_DATA_HOME/terminfo"
+
+alias tmux "tmux -f $HOME/.config/tmux/tmux.conf"
+
+# }}}
+
 #       "' RUN TMUX '" {{{
 
 
 if test "$TERM" != "linux" && not set -q TMUX
-  exec tmux new -As def
+  tmux new -As def
   exit
 end
 
