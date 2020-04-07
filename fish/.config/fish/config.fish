@@ -20,7 +20,7 @@ end
 
 
 set -xg PATH $HOME/.cargo/bin $HOME/.local/bin $PATH
-set -xg XDG_DATA_HOME $HOME/.config
+set -xg XDG_CONFIG_HOME $HOME/.config
 
 if set -q SSH_CONNECTION
   set -xg EDITOR "vim"
