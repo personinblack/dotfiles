@@ -21,6 +21,7 @@ end
 
 set -xg PATH $HOME/.cargo/bin $HOME/.local/bin $PATH
 set -xg XDG_CONFIG_HOME $HOME/.config
+set -xg XDG_CACHE_HOME $HOME/.cache
 
 if set -q SSH_CONNECTION
   set -xg EDITOR "vim"
@@ -65,6 +66,8 @@ set -xg FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 set -xg XAUTHORITY "$XDG_RUNTIME_DIR/Xauthority"
 set -xg LESSHISTFILE "-"
 set -xg TERMINFO "$XDG_DATA_HOME/terminfo"
+set -xg CUDA_CACHE_PATH "$XDG_CACHE_HOME"/nv
+set -xg CARGO_HOME "$XDG_DATA_HOME"/cargo
 
 alias tmux "tmux -f $HOME/.config/tmux/tmux.conf"
 
