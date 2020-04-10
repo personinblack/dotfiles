@@ -98,9 +98,13 @@ noremap <leader>s :Files<cr>
 
 
   " Remapping
-" >/< keys (pardon my language)
+" >/<, [/], {/} keys (pardon my language)
 map ç >
 map ö <
+map ğ [
+map ü ]
+map Ğ {
+map Ü }
 
 " Copy to/paste from clipboard shortcuts
 "map <C-y> "+y
@@ -391,5 +395,6 @@ let g:fzf_colors =
   " Markdown
 " Fix folding by setting it to python style
 let g:vim_markdown_folding_style_pythonic = 1
+
 
 " }}}
