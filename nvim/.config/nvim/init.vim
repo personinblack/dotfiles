@@ -103,8 +103,8 @@ map ç >
 map ö <
 
 " Copy to/paste from clipboard shortcuts
-map <C-y> "+y
-map <C-p> "+p
+"map <C-y> "+y
+"map <C-p> "+p
 
 " Tab intellisense
 inoremap <silent><expr> <S-Tab> coc#refresh()
