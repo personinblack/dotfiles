@@ -388,4 +388,8 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 
+  " Markdown
+" Fix folding by setting it to python style
+let g:vim_markdown_folding_style_pythonic = 1
+
 " }}}
