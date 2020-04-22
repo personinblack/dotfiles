@@ -323,7 +323,7 @@ function! s:goyo_leave()
   endif
   set showmode
   set showcmd
-  set scrolloff=5
+  set scrolloff=10
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
