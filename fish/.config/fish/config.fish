@@ -19,7 +19,7 @@ end
 #       "' ENVIRONMENT VARIABLES '" {{{
 
 
-set -xg PATH $HOME/.cargo/bin $HOME/.local/bin $PATH
+set -xg PATH $HOME/.local/share/cargo/bin $HOME/.local/bin $PATH
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_CACHE_HOME $HOME/.cache
 set -xg XDG_DATA_HOME $HOME/.local/share
