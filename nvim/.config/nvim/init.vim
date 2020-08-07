@@ -334,6 +334,9 @@ function! s:goyo_leave()
   set showmode
   set showcmd
   set scrolloff=10
+
+  " Remove background color
+  exec "highlight Normal guibg=NONE ctermbg=NONE"
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
