@@ -7,6 +7,6 @@ feh --bg-max --no-fehbg ~/.dotfiles/wallpaper/.wp &
 
 while :
 do
-    xsetroot -name " $(date "+%a %d %b %Y %R:%S") :: $(pactl list sinks | awk '/^\sVolume/ {print $5}')"
-    sleep 1
+  sh -c $HOME/.config/dwm/bar.sh
+  sleep 1
 done
