@@ -226,6 +226,8 @@ set listchars+=nbsp:░
 set splitbelow
 set splitright
 
+" Give more space for displaying messages
+set cmdheight=2
 
   " Code Style
 " Tabs to spaces
