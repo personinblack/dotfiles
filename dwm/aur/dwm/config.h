@@ -12,29 +12,29 @@ static const char *screenshot[] = { "/usr/bin/scrot", "-e", "mv $f ~/screenshots
 static const char *screenshot_select[] = { "/usr/bin/scrot", "-e", "mv $f ~/screenshots", "--select", NULL };
 
 /* appearance */
-static const unsigned int borderpx      = 1;        /* border pixel of windows */
-static const unsigned int gappx         = 10;        /* gaps between windows */
+static const unsigned int borderpx      = 0;        /* border pixel of windows */
+static const unsigned int gappx         = 40;        /* gaps between windows */
 static const unsigned int snap          = 1;       /* snap pixel */
 static const int showbar                = 1;        /* 0 means no bar */
 static const int topbar                 = 1;        /* 0 means bottom bar */
-static const char *fonts[]              = { "scientifica:size=1:style=Bold", "Noto Color Emoji:style=Regular:size=12" };
-static const char dmenufont[]           = "scientifica:size=1:style=Bold";
-static const unsigned int baralpha      = 0xB4;
+static const char *fonts[]              = { "scientifica:size=8:style=Bold", "Noto Color Emoji:style=Regular:size=12" };
+static const char dmenufont[]           = "scientifica:size=8:style=Bold";
+static const unsigned int baralpha      = OPAQUE;
 static const unsigned int borderalpha   = OPAQUE;
-static const char col_selbg[]           = "#f74782";
-static const char col_normbg[]          = "#080808";
-static const char col_selfg[]           = "#f74782";
-static const char col_normfg[]          = "#cfcfb0";
-static const char col_black[]           = "#080808";
+static const char col_selbg[]           = "#0D0E0E";
+static const char col_normbg[]          = "#0D0E0E";
+static const char col_selfg[]           = "#f49d3e";
+static const char col_normfg[]          = "#fff3cd";
+static const char col_black[]           = "#0d0e0e";
 static const char *colors[][3]          = {
 	/*               fg             bg          border      */
 	[SchemeNorm] = { col_normfg,    col_normbg, col_normbg  },
 	[SchemeSel]  = { col_selfg,     col_normbg, col_selbg   },
 };
 static const unsigned int alphas[][3]   = {
-	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+	/*               fg             bg          border     */
+	[SchemeNorm] = { OPAQUE,        baralpha,   borderalpha },
+	[SchemeSel]  = { OPAQUE,        baralpha,   borderalpha },
 };
 
 /* tagging */
@@ -47,8 +47,9 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "vlc",      NULL,       NULL,       1 << 10,      0,           -1 },
+	{ "vlc",      "vlc",      NULL,       1 << 10,      0,           -1 },
 	{ "discord",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ NULL,       NULL,       "Farge",    0,            1,           -1 },
 };
 
 /* layout(s) */

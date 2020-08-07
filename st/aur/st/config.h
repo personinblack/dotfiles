@@ -10,7 +10,7 @@ static char *font = "scientifica:style=Medium";
 static char *font2[] = {
 	"Symbola:pixelsize=12:antialias=true:autohint=true",
 };
-static int borderpx = 5;
+static int borderpx = 20;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -87,35 +87,37 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.85;
+float alpha = 1.0;
 
-/* 
+/*
  * Terminal colors (16 first used in escape sequence)
- * 
+ *
  * black, red, green, yellow, blue, magenta, cyan, white
  */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#373c40",
-	"#ff5454",
-	"#8cc85f",
-	"#e3c78a",
-	"#80a0ff",
-	"#ce76e8",
-	"#7ee0ce",
-	"#de935f",
+	"#282224",
+	"#DD4C46",
+	"#649154",
+	"#f49d3e",
+	"#64ACC4",
+	"#85608C",
+	"#F2A2B7",
+	"#8b8c8c",
 
 	/* 8 bright colors */
-	"#f09479",
-	"#f74782",
-	"#42cf89",
-	"#cfcfb0",
-	"#78c2ff",
-	"#ae81ff",
-	"#85dc85",
-	"#e2637f",
+	"#595450",
+	"#dd403a",
+	"#649154",
+	"#f49d3e",
+	"#459bb7",
+	"#85608C",
+	"#f2bac9",
+	"#fff3cd",
 
 	[255] = 0,
+  "#fff3cd",
+  "#0D0E0E"
 
 	/* more colors can be added after 255 to use with DefaultXX */
 };
@@ -125,10 +127,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 251;
-unsigned int defaultbg = 232;
-static unsigned int defaultcs = 4;
-static unsigned int defaultrcs = 247;
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
+static unsigned int defaultcs = 11;
+static unsigned int defaultrcs = 0;
 
 /*
  * Default shape of cursor
