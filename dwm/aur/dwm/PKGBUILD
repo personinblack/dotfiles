@@ -20,7 +20,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	https://dwm.suckless.org/patches/actualfullscreen/dwm-actualfullscreen-20191112-cb3f58a.diff
 	https://dwm.suckless.org/patches/alwaysfullscreen/dwm-alwaysfullscreen-20160713-56a31dc.diff
 	https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.2.diff
-        https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff
+	https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff
 	dwm-autostart-20161205-bb3bd6f.diff
 	config.h
 	dwm.desktop)
@@ -30,8 +30,8 @@ sha256sums=('97902e2e007aaeaa3c6e3bed1f81785b817b7413947f1db1d3b62b8da4cd110e'
             '3c59104f4b23b8ec3c31ff639712dc1214bd5e3a487f7af039268373eb9e0b2d'
             '568bbc45091da2ebfb72e71dbf653899723ec235adc4007602edb0522541f9d5'
             '1e13ddcc243c749c4b5fe31afd41b57ecef217206e695e7aad0a5b805b21d669'
-            '2edd3530f325f9d83add02e8e6118c448b5da5b8b78a87f8e5654b424a7ec5fb'
-            'bc36426772e1471d6dd8c8aed91f288e16949e3463a9933fee6390ee0ccd3f81')
+            'SKIP'
+            'SKIP')
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"
