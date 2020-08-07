@@ -198,6 +198,9 @@ endif
 syntax on
 set synmaxcol=180
 
+" Remove background color
+exec "highlight Normal guibg=NONE ctermbg=NONE"
+
 " Enable line numbers
 set rnu
 
