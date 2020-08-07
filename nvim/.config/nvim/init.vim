@@ -274,6 +274,9 @@ set timeoutlen=500
 " Don't know if this is still useful
 set conceallevel=0
 
+" Set buffer hidden instead of unloading when it is abondoned (coc needs this)
+set hidden
+
 
 " }}}
 
