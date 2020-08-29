@@ -409,5 +409,9 @@ let g:fzf_colors =
 " Fix folding by setting it to python style
 let g:vim_markdown_folding_style_pythonic = 1
 
+" Disable conceal
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
 
 " }}}
