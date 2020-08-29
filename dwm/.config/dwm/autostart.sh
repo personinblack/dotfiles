@@ -4,6 +4,15 @@
 discord &
 firefox &
 feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
+{
+  sudo ckb-next-daemon &
+  while :
+  do
+    ckb-next -b
+    sleep 1
+  done &
+  sleep 1; setxkbmap tr;
+} &
 
 while :
 do
