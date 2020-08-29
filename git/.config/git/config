@@ -4,3 +4,5 @@
 	signingkey = berkay@tuta.io
 [commit]
 	gpgsign = true
+[pull]
+	rebase = false
