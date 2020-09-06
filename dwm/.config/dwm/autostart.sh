@@ -11,7 +11,7 @@ feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
     ckb-next -b
     sleep 1
   done &
-  sleep 1; setxkbmap tr;
+  sleep 2; setxkbmap tr;
 } &
 
 while :
