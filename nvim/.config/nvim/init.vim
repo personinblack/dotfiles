@@ -111,7 +111,17 @@ map Ü }
 "map <C-p> "+p
 
 " Tab intellisense
-inoremap <silent><expr> <S-Tab> coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 
 " Unmap arrow keys
 nnoremap <up> <nop>
