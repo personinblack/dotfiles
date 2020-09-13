@@ -155,9 +155,23 @@ nmap <leader>t <Plug>(coc-codelens-action)
 " Coc rename
 nmap <leader>r <Plug>(coc-rename)
 " Coc codeaction
-nmap <leader>f <Plug>(coc-codeaction)
+nmap <leader>f <Plug>(coc-codeaction-selected)<CR>
+xmap <leader>f <Plug>(coc-codeaction-selected)
 " Coc references
-nmap <leader>d <Plug>(coc-references)
+nmap <leader>dr <Plug>(coc-references)
+" Coc definition
+nmap <leader>dd <Plug>(coc-definition)
+" Coc implementation
+nmap <leader>di <Plug>(coc-implementation)
+" Coc hover
+nmap <leader>w :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 
 " }}}
