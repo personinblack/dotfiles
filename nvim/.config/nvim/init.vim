@@ -58,7 +58,7 @@ Plug 'stephpy/vim-yaml'
 Plug 'godlygeek/tabular' " Required for markdown
 Plug 'plasticboy/vim-markdown'
 " Ruby end stuff
-Plug 'tpope/vim-endwise'
+"Plug 'tpope/vim-endwise' " Breaking delimitMate_expand_cr
 " Auto close brackets, quotes, paranthesis
 Plug 'raimondi/delimitmate'
 " Match open/close and jump between (key: %)
@@ -444,6 +444,12 @@ let g:vim_markdown_conceal_code_blocks = 0
   " Coc
 " Highlight under cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+  " delimitMate
+let delimitMate_expand_cr=2
+let delimitMate_expand_space=1
+let delimitMate_jump_expansion=1
 
 
 " }}}
