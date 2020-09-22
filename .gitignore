@@ -1,1 +1,3 @@
 nvim/.config/nvim/plugins
+fish/.config/fish/functions
+fish/.config/fish/conf.d
