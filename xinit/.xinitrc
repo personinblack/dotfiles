@@ -21,7 +21,6 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
-xrandr --dpi 96
 
 # }}}
 
