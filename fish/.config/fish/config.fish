@@ -86,6 +86,13 @@ alias nvidia-settings "nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings
 
 # }}}
 
+#       "' BEAUTY '" {{{
+
+
+set SPACEFISH_CHAR_SYMBOL "➜ "
+
+# }}}
+
 #       "' RUN TMUX '" {{{
 
 
