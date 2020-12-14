@@ -5,7 +5,6 @@ discord &
 firefox &
 feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
 {
-  sudo ckb-next-daemon &
   while :
   do
     ckb-next -b
