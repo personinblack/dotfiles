@@ -38,7 +38,6 @@ end
 source /usr/share/chruby/chruby.fish
 set RUBIES "$HOME/.local/share/rubies/ruby-2.6.5" $RUBIES
 source /usr/share/chruby/auto.fish
-source /usr/share/autojump/autojump.fish
 thefuck --alias | source
 
 # }}}
