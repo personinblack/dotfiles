@@ -97,8 +97,8 @@ noremap <leader>a :Grep<cr>
 noremap <leader>s :Files<cr>
 
 " Navigate floating coc windows (also toggle NERDTree :/)
-nnoremap <expr><C-p> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-p>"
-nnoremap <expr><C-n> coc#util#has_float() ? coc#util#float_scroll(1) : ":NERDTreeToggle<cr>"
+nnoremap <expr><C-p> coc#float#has_float() ? coc#float#scroll(0) : "\<C-p>"
+nnoremap <expr><C-n> coc#float#has_float() ? coc#float#scroll(1) : ":NERDTreeToggle<cr>"
 
   " Remapping
 " >/<, [/], {/} keys (pardon my language)
