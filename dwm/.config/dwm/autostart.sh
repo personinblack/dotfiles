@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#picom --experimental-backends -b &
+picom --experimental-backends -b &
 discord &
 firefox &
 feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
