@@ -183,6 +183,12 @@ endfunction
 " Bind :Q to :q
 command! Q q
 
+  " CoC
+" Organize imports
+command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
+" Format buffer
+command! -nargs=0 Format :call CocAction('format')
+
 
 "}}}
 
