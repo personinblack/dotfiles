@@ -320,6 +320,9 @@ augroup NERDTREE_AUTO_RUN
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 augroup END
 
+" Change bookmarks file
+let g:NERDTreeBookmarksFile = $HOME."/.config/nvim/NERDTreeBookmarks"
+
 
   " IndentLine
 " IndentColor
