@@ -10,6 +10,7 @@
     "solargraph.hover": true,
 
     "rust-analyzer.updates.channel": "nightly",
+    "rust-analyzer.completion.addCallParenthesis": true,
 
     "tsserver.formatOnType": false,
 
