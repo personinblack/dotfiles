@@ -2,3 +2,4 @@ nvim/.config/nvim/plugins
 nvim/.config/nvim/NERDTreeBookmarks
 fish/.config/fish/functions
 fish/.config/fish/conf.d
+fish/.config/fish/completions/fisher.fish
