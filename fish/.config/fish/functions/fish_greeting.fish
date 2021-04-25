@@ -1,3 +1,3 @@
 function fish_greeting
-  bat -pl javascript $HOME/docs/todo.txt
+  bat --paging=never -pl javascript $HOME/docs/todo.txt
 end
