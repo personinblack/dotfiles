@@ -293,7 +293,7 @@ set ignorecase
 set smartcase
 
 " Set correct shell
-set shell=$SHELL\ -l
+set shell=$SHELL
 
 
   " Fixes
