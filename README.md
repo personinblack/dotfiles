@@ -3,19 +3,29 @@
 here is me, managing my dotfiles and sharing them with random people
 on the internet. these are what i use:
 
-- *zsh* as shell with *oh-my-zsh* for better management (i install *oh-my-zsh* config
-  by saying `sudo stow oh-my-zsh -t /usr/share/oh-my-zsh`)
+- *aurafetch* for l33t looking screenshots
+- *bat* as fancy cat replacement
+- *chruby* as ruby versions manager
+- *ckb-next* to manage corsair keyboard
+- *copyq* for clipboard management
+- *discord* and *tiny (irc)* for chatting with friends
+- *dunst* for displaying notifications
+- *dwm* as window manager with *dmenu* as launcher
+- *exa* as an ls replacement
+- *farge* when I need rgb color code of something on screen
+- *feh* for viewing images and setting wallpaper
+- *firefox* as web browser
+- *fish* as shell with *starship* prompt.
+- *neovim* as text editor and IDE
+- *picom* as compositor mainly for transparency
+- *scrot* && *imgur.sh* with ImageMagick's *import* for screenshots
+- *st* as terminal emulator
+- *thefuck* for when i fuck up
 - *tmux* as terminal multiplexer with tmux plugin manager (tpm)
 - *xinit* for starting X sessions
-- *dwm* as window manager
-- *st* as terminal emulator
-- *neovim* as text editor and IDE
-- *aurafetch* for l33t looking screenshots
-- *exa* as an ls replacement
-- *thefuck* for when i fuck up
-- *scrot* for screenshots
-- *firefox* as web browser
-- *discord* for chatting with friends
+
+*scientifica* is my font of choice for everything except most GUI apps. I keep
+a todo.txt file and use it as my terminal greeter.
 
 ## installation
 
