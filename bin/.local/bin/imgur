@@ -1,0 +1,2 @@
+#!/bin/bash
+import png:- | imgur.sh -
