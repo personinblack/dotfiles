@@ -6,12 +6,8 @@ discord &
 firefox &
 feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
 {
-  while :
-  do
-    ckb-next -b
-    sleep 1
-  done &
-  sleep 2; setxkbmap tr;
+  sleep 4; ckb-next -b; sleep 4; setxkbmap tr;
+  setxkbmap tr;
 } &
 
 while :
