@@ -2,7 +2,7 @@
 
 picom --experimental-backends -b &
 copyq &
-discord &
+lightcord &
 firefox &
 feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
 ckb-next -b &
