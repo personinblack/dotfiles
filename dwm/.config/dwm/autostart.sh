@@ -5,10 +5,7 @@ copyq &
 discord &
 firefox &
 feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
-{
-  sleep 4; ckb-next -b; sleep 4; setxkbmap tr;
-  setxkbmap tr;
-} &
+ckb-next -b &
 
 while :
 do
