@@ -16,6 +16,8 @@
 
     "javascript.suggestionActions.enabled": false,
 
+    "java.home":"/usr/lib/jvm/java-15-openjdk",
+
     "diagnostic-languageserver.filetypes": {
         "ruby": "solargraph"
     },
