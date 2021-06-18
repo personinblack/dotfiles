@@ -96,6 +96,9 @@ noremap <leader>a :Grep<cr>
 " Fzf search file names
 noremap <leader>s :Files<cr>
 
+" Coc search symbols
+noremap <leader>d  :<C-u>CocList outline<cr>
+
 " Navigate floating coc windows (also toggle NERDTree :/)
 nnoremap <expr><C-p> coc#float#has_float() ? coc#float#scroll(0) : "\<C-p>"
 nnoremap <expr><C-n> coc#float#has_float() ? coc#float#scroll(1) : ":NERDTreeToggle<cr>"
