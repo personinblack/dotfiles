@@ -1,6 +1,7 @@
 # Servers to auto-connect
 servers:
     - addr: chat.freenode.net
+    - addr: irc.libera.chat
       port: 6697
       tls: true
 # Defaults used when connecting to servers via the /connect command
