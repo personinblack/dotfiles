@@ -159,8 +159,8 @@ nmap <leader>t <Plug>(coc-codelens-action)
 " Coc rename
 nmap <leader>r <Plug>(coc-rename)
 " Coc codeaction
-nmap <leader>f <Plug>(coc-codeaction-selected)<CR>
-xmap <leader>f <Plug>(coc-codeaction-selected)
+nmap <leader>f <Plug>(coc-codeaction-cursor)
+xmap <leader>f <Plug>(coc-codeaction-cursor)
 " Coc references
 nmap <leader>dr <Plug>(coc-references)
 " Coc definition
