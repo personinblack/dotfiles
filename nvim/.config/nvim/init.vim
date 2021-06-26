@@ -41,9 +41,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'yggdroot/indentline'
 " Distraction-free writing
 Plug 'junegunn/goyo.vim'
-" FZF
-Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
-Plug 'junegunn/fzf.vim'
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 
   " Semantic Language
@@ -89,12 +90,6 @@ map <Leader><Leader> <c-^>
 " git-gutter next/previous hunk
 nmap >h <Plug>GitGutterNextHunk
 nmap <h <Plug>GitGutterPrevHunk
-
-" Fzf search file contents
-noremap <leader>a :Grep<cr>
-
-" Fzf search file names
-noremap <leader>s :Files<cr>
 
 " Coc search symbols
 noremap <leader>d  :<C-u>CocList outline<cr>
@@ -151,6 +146,12 @@ nnoremap <silent> K :ALEHover<CR>
 
 " Goyo toggle
 map <C-z> :Goyo<CR>
+
+" Telescope
+nnoremap <leader>s <cmd>Telescope find_files hidden=true<cr>
+nnoremap <leader>a <cmd>Telescope live_grep hidden=true<cr>
+nnoremap <leader>ss <cmd>Telescope buffers<cr>
+nnoremap <leader>aa <cmd>Telescope help_tags<cr>
 
 
   " Plugin Other
@@ -412,39 +413,6 @@ let g:ale_rust_rls_config = {
 let g:ale_linters = {'rust': ['rls']}
 
 
-  " fzf with ripgrep
-" At the bottom with 40% size
-let g:fzf_layout = { 'down': '~40%' }
-
-" File content search format
-let fzfcmd = $FZF_DEFAULT_NF_COMMAND
-command! -bang -nargs=* Grep
-  \ call fzf#vim#grep(
-  \   fzfcmd.' --column --line-number --no-heading --color=always --smart-case '
-  \    .shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('right:60%'), <bang>0)
-
-" File name search format
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:60%'), <bang>0)
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-
   " Markdown
 " Fix folding by setting it to python style
 let g:vim_markdown_folding_style_pythonic = 1
@@ -462,6 +430,31 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
   " delimitMate
 let delimitMate_expand_cr=2
 let delimitMate_expand_space=1
+
+
+  " Telescope
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden'
+    },
+  }
+}
+EOF
 
 
 " }}}
