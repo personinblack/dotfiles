@@ -50,7 +50,6 @@ Plug 'nvim-telescope/telescope.nvim'
   " Semantic Language
 " Intellisense && completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'dense-analysis/ale'
 
 
   " Syntactic Language
@@ -382,35 +381,6 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-
-  " Ale
-"let g:ale_lint_on_text_changed = 'always'
-"let g:ale_lint_on_insert_leave = 1
-"let g:ale_lint_on_save = 0
-"let g:ale_lint_on_enter = 1
-"let g:ale_virtualtext_cursor = 1
-"highlight link ALEWarningSign Todo
-"highlight link ALEErrorSign WarningMsg
-"highlight link ALEVirtualTextWarning Todo
-"highlight link ALEVirtualTextInfo Todo
-"highlight link ALEVirtualTextError WarningMsg
-"highlight ALEError guibg=None
-"highlight ALEWarning guibg=None
-"let g:ale_sign_error = "✖"
-"let g:ale_sign_warning = "⚠"
-"let g:ale_sign_info = "i"
-"let g:ale_sign_hint = "➤"
-
-" Rust
-let g:ale_rust_rls_config = {
-        \ 'rust': {
-                \ 'all_targets': 1,
-                \ 'build_on_save': 0,
-                \ 'clippy_preference': 'on'
-        \ }
-        \ }
-let g:ale_linters = {'rust': ['rls']}
 
 
   " Markdown
