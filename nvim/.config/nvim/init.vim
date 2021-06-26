@@ -104,10 +104,6 @@ map ü ]
 map Ğ {
 map Ü }
 
-" Copy to/paste from clipboard shortcuts
-"map <C-y> "+y
-"map <C-p> "+p
-
 " Tab intellisense
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
