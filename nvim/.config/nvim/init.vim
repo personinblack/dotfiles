@@ -57,8 +57,6 @@ Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'godlygeek/tabular' " Required for markdown
 Plug 'plasticboy/vim-markdown'
-" Ruby end stuff
-"Plug 'tpope/vim-endwise' " Breaking delimitMate_expand_cr
 " Auto close brackets, quotes, paranthesis
 Plug 'raimondi/delimitmate'
 " Match open/close and jump between (key: %)
