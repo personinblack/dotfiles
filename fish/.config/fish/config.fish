@@ -30,6 +30,8 @@ else
   set -xg EDITOR "nvim"
 end
 
+set -xg BAT_THEME "Sublime Snazzy"
+
 # }}}
 
 #       "' SOURCES '" {{{
