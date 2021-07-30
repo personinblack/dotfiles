@@ -1,0 +1,22 @@
+# vim:filetype=muttrc
+
+## Receive options
+set imap_user       = bar@foo.com
+set imap_pass       = "pA5sW0Rd"
+set folder          = imaps://mail.foo.com/
+set spoolfile       = +INBOX
+set postponed       = +Drafts
+mailboxes           = +INBOX
+
+## Send options
+set smtp_url        = smtps://user:bar@smtp.foo.com
+set realname        = "MARIO"
+set from            = bar@foo.com
+set hostname        = "foo.com"
+set signature       = "MARIO"
+set ssl_force_tls   = yes
+unset ssl_starttls
+
+## Account hook
+account-hook $folder "set imap_user=bar@foo.com imap_pass=pA5sW0Rd"
+
