@@ -3,3 +3,6 @@ nvim/.config/nvim/NERDTreeBookmarks
 fish/.config/fish/functions
 fish/.config/fish/conf.d
 fish/.config/fish/completions/fisher.fish
+
+mutt/.config/mutt/autis
+mutt/.config/mutt/gmail
