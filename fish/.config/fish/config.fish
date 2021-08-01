@@ -40,7 +40,9 @@ set -xg npm_config_prefix $HOME/.local
 
 
 source /usr/share/chruby/chruby.fish
-set RUBIES "$HOME/.local/share/rubies/ruby-2.6.5" $RUBIES
+set RUBIES "$HOME/.local/share/rubies/ruby-2.6.5"\
+  "$HOME/.local/share/rubies/ruby-3.0.2" $RUBIES
+chruby "ruby-3.0.2"
 source /usr/share/chruby/auto.fish
 thefuck --alias | source
 
