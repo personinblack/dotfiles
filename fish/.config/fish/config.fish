@@ -32,6 +32,8 @@ end
 
 set -xg BAT_THEME "Sublime Snazzy"
 
+set -xg npm_config_prefix $HOME/.local
+
 # }}}
 
 #       "' SOURCES '" {{{
