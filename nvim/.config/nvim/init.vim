@@ -116,6 +116,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Enter confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " Unmap arrow keys
 nnoremap <up> <nop>
