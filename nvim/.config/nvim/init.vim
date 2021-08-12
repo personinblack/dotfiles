@@ -167,7 +167,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -182,9 +182,9 @@ command! Q q
 
   " CoC
 " Organize imports
-command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR     :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 " Format buffer
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
 
 "}}}
