@@ -100,6 +100,9 @@ map ü ]
 map Ğ {
 map Ü }
 
+" <Esc> out of insert mode in :terminal
+tnoremap <Esc> <C-\><C-n>
+
 " Tab intellisense
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
