@@ -84,10 +84,6 @@ nnoremap , :vnew<CR>
 " Previous buffer
 map <Leader><Leader> <c-^>
 
-" git-gutter next/previous hunk
-nmap >h <Plug>GitGutterNextHunk
-nmap <h <Plug>GitGutterPrevHunk
-
 " Coc search symbols
 noremap <leader>d  :<C-u>CocList outline<cr>
 
