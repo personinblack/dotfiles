@@ -357,7 +357,7 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set scrolloff=999
-  set nu
+  set rnu
   set colorcolumn=90
 endfunction
 
