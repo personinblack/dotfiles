@@ -12,11 +12,6 @@ SETUVAR Z_DATA:/home/menfie/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/menfie/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/menfie\x24
 SETUVAR __fish_initialized:3100
-SETUVAR _fish_abbr__3A_q:exit
-SETUVAR _fish_abbr_l:exa
-SETUVAR _fish_abbr_lsa:exa\x20\x2dla
-SETUVAR _fish_abbr_py:python\x20\x2dS
-SETUVAR _fish_abbr_tree:exa\x20\x2d\x2dtree
 SETUVAR _fisher_jethrokuan_2F_fzf_files:/home/menfie/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzf_open\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e/home/menfie/\x2econfig/fish/conf\x2ed/fzf\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:/home/menfie/\x2econfig/fish/functions/__z\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__z_add\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__z_clean\x2efish\x1e/home/menfie/\x2econfig/fish/functions/__z_complete\x2efish\x1e/home/menfie/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/menfie/\x2econfig/fish/functions/fisher\x2efish\x1e/home/menfie/\x2econfig/fish/completions/fisher\x2efish

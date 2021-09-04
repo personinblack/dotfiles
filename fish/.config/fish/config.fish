@@ -51,11 +51,11 @@ thefuck --alias | source
 #       "' ALIASES '" {{{
 
 
-abbr --add l "exa"
-abbr --add lsa "exa -la"
-abbr --add tree "exa --tree"
-abbr --add :q exit
-abbr --add py "python -S" # Python without "Site-specific conf hook", hist file
+abbr -ag l "exa"
+abbr -ag lsa "exa -la"
+abbr -ag tree "exa --tree"
+abbr -ag :q exit
+abbr -ag py "python -S" # Python without "Site-specific conf hook", hist file
 
 # }}}
 
