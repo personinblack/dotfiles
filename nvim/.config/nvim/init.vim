@@ -103,21 +103,6 @@ map Ü }
 " <Esc> out of insert mode in :terminal
 tnoremap <Esc> <C-\><C-n>
 
-" Tab intellisense
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Enter confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-
 " Unmap arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -171,6 +156,21 @@ function! s:show_documentation()
     call CocActionAsync('doHover')
   endif
 endfunction
+
+" Coc tab intellisense
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Coc enter confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+
 
 
 " }}}
