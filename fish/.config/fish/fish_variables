@@ -13,7 +13,6 @@ SETUVAR Z_DATA_DIR:/home/menfie/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/menfie\x24
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr__3A_q:exit
-SETUVAR _fish_abbr_aura:aura\x20\x2dc\x20\x27c1\x20c7\x27
 SETUVAR _fish_abbr_l:exa
 SETUVAR _fish_abbr_lsa:exa\x20\x2dla
 SETUVAR _fish_abbr_py:python\x20\x2dS
