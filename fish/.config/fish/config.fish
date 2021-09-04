@@ -57,6 +57,14 @@ abbr -ag tree "exa --tree"
 abbr -ag :q exit
 abbr -ag py "python -S" # Python without "Site-specific conf hook", hist file
 
+abbr -ag g "git"
+abbr -ag gst "git status"
+abbr -ag gch "git checkout"
+abbr -ag gad "git add"
+abbr -ag gco "git commit"
+abbr -ag gpu "git push"
+abbr -ag gbr "git branch"
+
 # }}}
 
 #       "' FZF '" {{{
