@@ -19,6 +19,8 @@ set imap_keepalive  = 300
 set imap_check_subscribed
 # Allow Mutt to open a new IMAP connection automatically.
 unset imap_passive
+# Speed up folders switch? (src: archwiki)
+set sleep_time      = 0
 
 # }}}
 
