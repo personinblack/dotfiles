@@ -34,26 +34,36 @@ set -xg BAT_THEME "Sublime Snazzy"
 
 set -xg npm_config_prefix $HOME/.local
 
+set -xg IMGUR_CLIENT_ID 9b4d6c50beb51ee
+
 # }}}
 
 #       "' SOURCES '" {{{
 
 
-source /usr/share/chruby/chruby.fish
-set RUBIES "$HOME/.local/share/rubies/ruby-2.6.5"\
-  "$HOME/.local/share/rubies/ruby-3.0.2" $RUBIES
-chruby "ruby-3.0.2"
-source /usr/share/chruby/auto.fish
-thefuck --alias | source
+if type -q chruby
+  source /usr/share/chruby/chruby.fish
+  set RUBIES "$HOME/.local/share/rubies/ruby-2.6.5"\
+    "$HOME/.local/share/rubies/ruby-3.0.2" $RUBIES
+  chruby "ruby-3.0.2"
+  source /usr/share/chruby/auto.fish
+end
+
+if type -q thefuck
+  thefuck --alias | source
+end
 
 # }}}
 
 #       "' ALIASES '" {{{
 
 
-abbr -ag l "exa"
-abbr -ag lsa "exa -la"
-abbr -ag tree "exa --tree"
+if type -q exa
+  abbr -ag l "exa"
+  abbr -ag lsa "exa -la"
+  abbr -ag tree "exa --tree"
+end
+
 abbr -ag :q exit
 abbr -ag py "python -S" # Python without "Site-specific conf hook", hist file
 
@@ -70,9 +80,11 @@ abbr -ag gbr "git branch"
 #       "' FZF '" {{{
 
 
-set -xg FZF_DEFAULT_NF_COMMAND "rg --hidden -g '!**.git/**'"
-set -xg FZF_DEFAULT_COMMAND "$FZF_DEFAULT_NF_COMMAND --files"
-set -xg FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
+if type -q fzf
+  set -xg FZF_DEFAULT_NF_COMMAND "rg --hidden -g '!**.git/**'"
+  set -xg FZF_DEFAULT_COMMAND "$FZF_DEFAULT_NF_COMMAND --files"
+  set -xg FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
+end
 
 # }}}
 
