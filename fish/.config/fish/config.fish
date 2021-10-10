@@ -126,8 +126,8 @@ end
 #       "' BEAUTY '" {{{
 
 
-# starship prompt
-starship init fish | source
+# starship prompt (replaced with lucid.fish for now)
+#starship init fish | source
 
 # }}}
 
