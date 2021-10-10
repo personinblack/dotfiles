@@ -111,6 +111,15 @@ set -xg NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME"/npm/npmrc
 
 alias tmux "tmux -f $HOME/.config/tmux/tmux.conf"
 alias nvidia-settings "nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings"
+alias yarn "yarn --use-yarnrc '$XDG_CONFIG_HOME/yarn/config'"
+
+function ngrok
+  command ngrok $argv --config "$HOME/.config/ngrok2/ngrok.yml"
+end
+
+function mvn
+  command mvn $argv -gs "$XDG_CONFIG_HOME"/maven/settings.xml
+end
 
 # }}}
 
