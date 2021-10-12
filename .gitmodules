@@ -1,3 +1,6 @@
 [submodule "tmux/.config/tmux/plugins/tpm"]
 	path = tmux/.config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "st/aur/st"]
+	path = st/aur/st
+	url = https://github.com/personinblack/st
