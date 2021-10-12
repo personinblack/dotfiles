@@ -4,3 +4,6 @@
 [submodule "st/aur/st"]
 	path = st/aur/st
 	url = https://github.com/personinblack/st
+[submodule "dwm/aur/dwm"]
+	path = dwm/aur/dwm
+	url = https://github.com/personinblack/dwm
