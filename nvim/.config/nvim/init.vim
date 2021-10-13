@@ -379,8 +379,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
   " Markdown
-" Fix folding by setting it to python style
-let g:vim_markdown_folding_style_pythonic = 1
+" Disable folding
+let g:vim_markdown_folding_disabled = 1
 
 " Disable conceal
 let g:vim_markdown_conceal = 0
