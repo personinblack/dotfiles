@@ -103,16 +103,6 @@ map Ü }
 " <Esc> out of insert mode in :terminal
 tnoremap <Esc> <C-\><C-n>
 
-" Unmap arrow keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
 
   " Function Calls
 " Toggle transparency
