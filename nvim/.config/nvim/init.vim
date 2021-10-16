@@ -94,27 +94,27 @@ nnoremap <expr><C-n> coc#float#has_float() ? coc#float#scroll(1) : ":NERDTreeTog
 
   " Remapping
 " >/<, [/], {/} keys (pardon my language)
-"map ç >
-"map ö <
-"map ğ [
-"map ü ]
-"map Ğ {
-"map Ü }
+map ç >
+map ö <
+map ğ [
+map ü ]
+map Ğ {
+map Ü }
 
 " colemak
-noremap n j
-noremap e k
-noremap i l
-noremap N J
-noremap E K
-noremap I L
+"noremap n j
+"noremap e k
+"noremap i l
+"noremap N J
+"noremap E K
+"noremap I L
 
-noremap j e
-noremap k i
-noremap l n
-noremap J E
-noremap K I
-noremap L N
+"noremap j e
+"noremap k i
+"noremap l n
+"noremap J E
+"noremap K I
+"noremap L N
 
 " <Esc> out of insert mode in :terminal
 tnoremap <Esc> <C-\><C-n>
