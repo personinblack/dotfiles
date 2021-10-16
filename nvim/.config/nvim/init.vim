@@ -91,14 +91,30 @@ noremap <leader>d  :<C-u>CocList outline<cr>
 nnoremap <expr><C-p> coc#float#has_float() ? coc#float#scroll(0) : "\<C-p>"
 nnoremap <expr><C-n> coc#float#has_float() ? coc#float#scroll(1) : ":NERDTreeToggle<cr>"
 
+
   " Remapping
 " >/<, [/], {/} keys (pardon my language)
-map ç >
-map ö <
-map ğ [
-map ü ]
-map Ğ {
-map Ü }
+"map ç >
+"map ö <
+"map ğ [
+"map ü ]
+"map Ğ {
+"map Ü }
+
+" colemak
+noremap n j
+noremap e k
+noremap i l
+noremap N J
+noremap E K
+noremap I L
+
+noremap j e
+noremap k i
+noremap l n
+noremap J E
+noremap K I
+noremap L N
 
 " <Esc> out of insert mode in :terminal
 tnoremap <Esc> <C-\><C-n>
