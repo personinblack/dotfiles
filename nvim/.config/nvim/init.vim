@@ -102,19 +102,8 @@ map Ğ {
 map Ü }
 
 " colemak
-"noremap n j
-"noremap e k
-"noremap i l
-"noremap N J
-"noremap E K
-"noremap I L
-
-"noremap j e
-"noremap k i
-"noremap l n
-"noremap J E
-"noremap K I
-"noremap L N
+autocmd! InsertLeave * call system('setxkbmap -option "compose:menu" tr')
+autocmd! InsertEnter * call system('setxkbmap -option "compose:menu, caps:capslock" us colemak')
 
 " <Esc> out of insert mode in :terminal
 tnoremap <Esc> <C-\><C-n>
