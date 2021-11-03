@@ -102,8 +102,8 @@ map Ğ {
 map Ü }
 
 " colemak
-autocmd! InsertLeave * call system('setxkbmap -option "compose:menu" tr')
-autocmd! InsertEnter * call system('setxkbmap -option "compose:menu, caps:capslock" us colemak')
+"autocmd! InsertLeave * call system('setxkbmap -option "compose:menu" tr')
+"autocmd! InsertEnter * call system('setxkbmap -option "compose:menu, caps:capslock" us colemak')
 
 " <Esc> out of insert mode in :terminal
 tnoremap <Esc> <C-\><C-n>
