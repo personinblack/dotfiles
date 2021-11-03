@@ -164,7 +164,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Coc enter confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
 
 
 
