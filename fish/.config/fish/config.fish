@@ -75,6 +75,8 @@ abbr -ag gco "git commit"
 abbr -ag gpu "git push"
 abbr -ag gbr "git branch"
 
+alias youtube-dl yt-dlp
+
 # }}}
 
 #       "' FZF '" {{{
