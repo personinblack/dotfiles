@@ -128,8 +128,6 @@ end
 #       "' BEAUTY '" {{{
 
 
-# starship prompt (replaced with lucid.fish for now)
-#starship init fish | source
 set lucid_skip_newline true
 
 # }}}
