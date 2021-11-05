@@ -83,7 +83,7 @@ alias youtube-dl yt-dlp
 
 
 if type -q fzf
-  set -xg FZF_DEFAULT_NF_COMMAND "rg --hidden -g '!**.git/**'"
+  set -xg FZF_DEFAULT_NF_COMMAND "rg --hidden -g '!**.git/**' -g '!**cache**/**'"
   set -xg FZF_DEFAULT_COMMAND "$FZF_DEFAULT_NF_COMMAND --files"
   set -xg FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 end
