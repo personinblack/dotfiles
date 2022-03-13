@@ -38,7 +38,7 @@ Plug 'airblade/vim-gitgutter'
 " Statusbar
 Plug 'vim-airline/vim-airline'
 " Indent guides
-Plug 'yggdroot/indentline'
+Plug 'lukas-reineke/indent-blankline.nvim'
 " Distraction-free writing
 Plug 'junegunn/goyo.vim'
 " Telescope
@@ -323,18 +323,6 @@ augroup END
 
 " Change bookmarks file
 let g:NERDTreeBookmarksFile = $HOME."/.config/nvim/NERDTreeBookmarks"
-
-
-  " IndentLine
-" IndentColor
-let g:indentLine_color_term = 0
-
-" Fix JSON
-augroup JSON_NO_INDENT
-    au!
-    autocmd BufEnter *.json IndentLinesDisable
-    autocmd BufEnter *.md   IndentLinesDisable
-augroup END
 
 
   " Editorconfig
