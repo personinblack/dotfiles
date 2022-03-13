@@ -35,6 +35,7 @@ set -xg BAT_THEME "Sublime Snazzy"
 set -xg npm_config_prefix $HOME/.local
 
 set -xg IMGUR_CLIENT_ID 9b4d6c50beb51ee
+set -xg IMGUR_XSEL_OPTIONS "-b"
 
 # }}}
 
