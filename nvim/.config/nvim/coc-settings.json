@@ -14,7 +14,12 @@
 
     "javascript.suggestionActions.enabled": false,
 
-    "java.home":"/usr/lib/jvm/java-15-openjdk",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.8",
+            "path": "/usr/lib/jvm/java-8-openjdk"
+        }
+    ],
 
     "languageserver": {
       "haskell": {
