@@ -50,6 +50,8 @@ Plug 'nvim-telescope/telescope.nvim'
   " Semantic Language
 " Intellisense && completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" GitHub Copilot
+Plug 'github/copilot.vim'
 
 
   " Syntactic Language
