@@ -14,6 +14,7 @@
 
     "javascript.suggestionActions.enabled": false,
 
+    "java.configuration.maven.userSettings": "~/.config/maven/settings.xml",
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-1.8",
