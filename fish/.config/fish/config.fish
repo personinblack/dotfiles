@@ -42,12 +42,11 @@ set -xg IMGUR_XSEL_OPTIONS "-b"
 #       "' SOURCES '" {{{
 
 
-if type -q chruby
+if test -e /usr/share/chruby/chruby.fish
   source /usr/share/chruby/chruby.fish
-  set RUBIES "$HOME/.local/share/rubies/ruby-2.6.5"\
-    "$HOME/.local/share/rubies/ruby-3.0.2" $RUBIES
-  chruby "ruby-3.0.2"
   source /usr/share/chruby/auto.fish
+  set RUBIES $HOME/.local/share/rubies/*
+  chruby "ruby-3.1.2"
 end
 
 if type -q thefuck
