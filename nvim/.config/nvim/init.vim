@@ -151,7 +151,7 @@ endfunction
 
 " Coc tab intellisense
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -161,7 +161,8 @@ function! s:check_back_space() abort
 endfunction
 
 " Coc enter confirm completion
-imap <expr> <cr> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 
