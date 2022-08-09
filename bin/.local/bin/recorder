@@ -1,0 +1,65 @@
+#!/bin/bash
+
+_file=$1
+if [ -z "$_file" ]; then
+  _file="/tmp/screen_$(date +%d-%m-%y-%H%M%S).mp4"
+fi
+
+_filetmp="tmp-"$_file
+
+# TODO: Fix this raising "height not divisible by 2" errors for some reason.
+_scalefactor=$2
+if [ -z "$_scalefactor" ]; then
+  _scalefactor=1.5
+fi
+
+_fps=$3
+if [ -z "$_fps" ]; then
+    _fps=15
+fi
+
+if [[ -f "$_file" || -f "$_filetmp" ]]; then
+  echo ":: File $_file already exists! Replace? [y/N]"
+  read _replace
+  if [[ "$_replace" != "y" && "$_replace" != "Y" ]]; then
+    exit 1
+  fi
+fi
+
+echo -e ":: Will record to file $_file with scale factor $_scalefactor \
+and fps $_fps.\n:: Select an area to record or 'Ctrl-C' to cancel."
+
+#_geometry=$(xdotool getwindowgeometry $(xdotool selectwindow) \
+#  | awk '{if (NR!=1) {print $2}}')
+
+#for _g in $_geometry; do
+#    case $_g in
+#        *,*)
+#            _pos=$(tr ',' ':' <<< $_g)
+#            ;;
+#        *x*)
+#            _size=$(tr 'x' ':' <<< $_g)
+#            ;;
+#    esac
+#done
+
+_geometry=$(hacksaw -f "%w:%h:%x:%y")
+
+# replace 'y'
+rm $_file &> /dev/null
+rm $_filetmp &> /dev/null
+
+_filters="[0:v]format=yuv420p [fr];[fr] crop=$_geometry,scale=w=iw/$_scalefactor:h=ih/$_scalefactor"
+
+echo -e ":: Recording... Press 'Q' to stop. \n"
+
+ffmpeg -loglevel error -f x11grab -framerate $_fps -i :0.0 -an \
+  -c:v libx264rgb -preset ultrafast -crf 0 $_filetmp
+
+echo ":: Done recording. Will apply filters and re-encode now to save space \
+and for compatibility with dumb video players."
+
+ffmpeg -i $_filetmp -c:v libx264 -crf 23 -preset slower \
+  -filter_complex "$_filters" $_file
+
+rm $_filetmp
