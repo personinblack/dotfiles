@@ -115,9 +115,6 @@ nnoremap <C-t> : call Toggle_transparent()<CR>
 
 
   " Plugin Toggle
-" ALEHover
-nnoremap <silent> K :ALEHover<CR>
-
 " Goyo toggle
 map <C-z> :Goyo<CR>
 
