@@ -257,8 +257,9 @@ set cmdheight=2
 set expandtab
 
 " Default tab size
+set tabstop=4
 set softtabstop=4
-set shiftwidth=4
+set shiftwidth=0
 
 
   " Editor Improvements
