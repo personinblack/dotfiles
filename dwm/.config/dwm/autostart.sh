@@ -6,6 +6,7 @@ discord --use-gl=desktop --enable-speech-dispatcher &
 firefox &
 feh --bg-scale --no-fehbg ~/.dotfiles/wallpaper/.wp &
 ckb-next -b &
+easyeffects --gapplication-service &
 
 while :
 do
