@@ -42,11 +42,9 @@ set -xg IMGUR_XSEL_OPTIONS "-b"
 #       "' SOURCES '" {{{
 
 
+#if type -q thefuck
+#  thefuck --alias | source
 #end
-
-if type -q thefuck
-  thefuck --alias | source
-end
 
 # }}}
 
