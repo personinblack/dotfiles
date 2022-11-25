@@ -1,6 +1,6 @@
 #!/bin/bash
 
-picom --experimental-backends -b &
+picom -b &
 copyq &
 discord --use-gl=desktop --enable-speech-dispatcher &
 firefox &
