@@ -67,6 +67,8 @@ abbr -ag gad "git add"
 abbr -ag gco "git commit"
 abbr -ag gpu "git push"
 abbr -ag gbr "git branch"
+abbr -ag gdi "git diff"
+abbr -ag glo "git log"
 
 alias youtube-dl yt-dlp
 
