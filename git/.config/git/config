@@ -18,3 +18,8 @@
   conflictstyle = diff3
 [diff]
   colorMoved = default
+[format]
+  pretty = normal
+[pretty]
+  reverse = "format:%C(yellow reverse) %h%d %C(green italic) \"%s\" %C(dim cyan noitalic) %cr %C(white) @%an %n"
+  normal = "format:%C(yellow)%h%d %C(green italic)\"%s\" %C(dim cyan reverse noitalic) %cr %C(white) @%an %n"

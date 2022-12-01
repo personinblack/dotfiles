@@ -60,6 +60,18 @@ end
 abbr -ag :q exit
 abbr -ag py "python -S" # Python without "Site-specific conf hook", hist file
 
+function git
+  if test $argv[1] = "log"
+    if test -z $argv[2]
+      command git log --graph --branches --stat
+    else
+      command git $argv
+    end
+  else
+    command git $argv
+  end
+end
+
 abbr -ag g "git"
 abbr -ag gst "git status"
 abbr -ag gch "git checkout"
