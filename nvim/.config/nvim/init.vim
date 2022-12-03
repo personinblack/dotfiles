@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim/plugins')
 
   " Usability Stuff
 " Vim tmux movement integration
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'personinblack/vim-tmux-navigator'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 " Git branch viewer
@@ -78,18 +78,18 @@ let mapleader = ' '
 
   " Navigation
 " New pane (these are not regular dash and comma chars, they are made with the CTRL-v)
-nnoremap - :new<CR>
-nnoremap , :vnew<CR>
+nnoremap - <Cmd>new<CR>
+nnoremap , <Cmd>vnew<CR>
 
 " Previous buffer
 map <Leader><Leader> <c-^>
 
 " Coc search symbols
-noremap <leader>d  :<C-u>CocList outline<cr>
+noremap <leader>d  <Cmd><C-u>CocList outline<cr>
 
 " Navigate floating coc windows (also toggle NERDTree :/)
 nnoremap <expr><C-p> coc#float#has_float() ? coc#float#scroll(0) : "\<C-p>"
-nnoremap <expr><C-n> coc#float#has_float() ? coc#float#scroll(1) : ":NERDTreeToggle<cr>"
+nnoremap <expr><C-n> coc#float#has_float() ? coc#float#scroll(1) : "<Cmd>NERDTreeToggle<cr>"
 
 
   " Remapping
@@ -102,8 +102,12 @@ map Ğ {
 map Ü }
 
 " colemak
-"autocmd! InsertLeave * call jobstart('setxkbmap -option "compose:menu" tr', {'detach': 1})
-"autocmd! InsertEnter * call jobstart('setxkbmap -option "compose:menu, caps:capslock" us colemak', {'detach': 1})
+augroup kbdmap
+    autocmd InsertLeave * call jobstart('setxkbmap -option "compose:menu" tr', {'detach': 1})
+    autocmd InsertEnter * call jobstart('setxkbmap -option "compose:menu, caps:capslock" us colemak', {'detach': 1})
+    autocmd CmdlineLeave [:/?] call jobstart('setxkbmap -option "compose:menu" tr', {'detach': 1})
+    autocmd CmdlineEnter [:/?] call jobstart('setxkbmap -option "compose:menu, caps:capslock" us colemak', {'detach': 1})
+augroup END
 
 " <Esc> out of insert mode in :terminal
 tnoremap <Esc> <C-\><C-n>
@@ -111,12 +115,12 @@ tnoremap <Esc> <C-\><C-n>
 
   " Function Calls
 " Toggle transparency
-nnoremap <C-t> : call Toggle_transparent()<CR>
+nnoremap <C-t> <Cmd>call Toggle_transparent()<CR>
 
 
   " Plugin Toggle
 " Goyo toggle
-map <C-z> :Goyo<CR>
+map <C-z> <Cmd>Goyo<CR>
 
 " Telescope
 nnoremap <leader>s <cmd>Telescope find_files hidden=true<cr>
@@ -140,7 +144,7 @@ nmap <leader>dd <Plug>(coc-definition)
 " Coc implementation
 nmap <leader>di <Plug>(coc-implementation)
 " Coc hover
-nmap <leader>w :call <SID>show_documentation()<CR>
+nmap <leader>w <Cmd>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -176,9 +180,9 @@ command! Q q
 
   " CoC
 " Organize imports
-command! -nargs=0 OR     :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR     <Cmd>call CocActionAsync('runCommand', 'editor.action.organizeImport')
 " Format buffer
-command! -nargs=0 Format :call CocActionAsync('format')
+command! -nargs=0 Format <Cmd>call CocActionAsync('format')
 
 
 "}}}
