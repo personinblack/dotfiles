@@ -84,6 +84,10 @@ nnoremap , <Cmd>vnew<CR>
 " Previous buffer
 map <Leader><Leader> <c-^>
 
+" Ctrl-[d/u] center screen
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
 " Coc search symbols
 noremap <leader>d  <Cmd><C-u>CocList outline<cr>
 
