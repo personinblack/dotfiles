@@ -295,6 +295,9 @@ set smartcase
 " Set correct shell
 set shell=$SHELL
 
+" Remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 
   " Fixes
 " Vim update faster (for git-gutter, syntax checks, etc.)
