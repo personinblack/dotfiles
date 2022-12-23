@@ -349,7 +349,7 @@ function! s:goyo_enter()
   endif
   set noshowmode
   set noshowcmd
-  set scrolloff=999
+  "set scrolloff=999
   set rnu
   set colorcolumn=90
 endfunction
@@ -361,7 +361,7 @@ function! s:goyo_leave()
   endif
   set showmode
   set showcmd
-  set scrolloff=10
+  "set scrolloff=10
 
   " Remove background color
   exec "highlight Normal guibg=NONE ctermbg=NONE"
