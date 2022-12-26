@@ -1,0 +1,7 @@
+vim.opt.statusline = " %<"
+.. "%f"
+.. "%0( :: %{get(b:, 'gitsigns_status', '')}%)"
+.. " %m"
+.. "%="
+.. "%c"
+.. " :: %P "
