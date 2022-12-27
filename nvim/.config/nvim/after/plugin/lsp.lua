@@ -30,7 +30,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
     ["<C-o>"] = cmp.mapping.confirm({ select = true }),
-    ["<S-Tab>"] = cmp.mapping.complete(),
+    ["<S-Tab>"] = cmp.mapping.complete({}),
 })
 
 -- disable completion with tab
