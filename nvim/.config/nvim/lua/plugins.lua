@@ -58,6 +58,8 @@ return require("packer").startup(function(use)
         requires = "nvim-treesitter",
         after = "nvim-cmp"
     }
+    -- Floating terminals for lazygit and similar
+    use { "akinsho/toggleterm.nvim", tag = "2.3.0" }
 
 
         -- LSP

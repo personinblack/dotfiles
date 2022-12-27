@@ -1,4 +1,6 @@
-local mset = vim.keymap.set
+local function mset(mode, lhs, rhs, remap)
+    vim.keymap.set(mode, lhs, rhs, { remap = remap or false })
+end
 
 vim.g.mapleader = " "
 
@@ -17,8 +19,8 @@ mset("n", "-", "<Cmd>new<CR>")
 mset("n", ",", "<Cmd>vnew<CR>")
 -- Fast previous buffer
 mset("n", "<Leader><Leader>", "<c-^>")
--- <Esc> out of insert mode in :terminal
-mset("t", "<Esc>", "<C-\\><C-n>")
+-- <C-n> out of insert mode in :terminal
+mset("t", "<C-n>", "<C-\\><C-n>")
 
 -- Copy into clipboard
 mset({ "n", "v" }, "<leader>y", [["+y]])
@@ -33,3 +35,9 @@ vim.opt.langmap = {
     "Ğ{",
     "Ü}",
 }
+mset("", "ç", ">", true)
+mset("", "ö", "<", true)
+mset("", "ğ", "[", true)
+mset("", "ü", "]", true)
+mset("", "Ğ", "{", true)
+mset("", "Ü", "}", true)
