@@ -58,19 +58,23 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>w", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "<leader>f", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>rr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
     -- Format command
-    if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
+    vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
+        vim.lsp.buf.code_action({
+            context = { only = { "source.organizeImports" } },
+            apply = true
+        })
+        if client.server_capabilities.documentFormattingProvider then
             vim.lsp.buf.format({ bufnr = bufnr, async = false })
-        end, { range = false, desc = "Format with LSP" })
-    end
+        end
+    end, { range = false, desc = "Format with LSP" })
 
     if client.server_capabilities.documentRangeFormattingProvider then
         vim.api.nvim_buf_set_option(bufnr, "formatexpr",
@@ -92,3 +96,11 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true,
 })
+
+require("mason-null-ls").setup({
+    automatic_installation = false,
+    automatic_setup = true,
+})
+
+require("null-ls").setup()
+require("mason-null-ls").setup_handlers()

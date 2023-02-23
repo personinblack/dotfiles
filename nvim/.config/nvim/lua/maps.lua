@@ -17,6 +17,8 @@ mset("v", "K", ":m '<-2<CR>gv=gv")
 -- New pane shortcuts
 mset("n", "-", "<Cmd>new<CR>")
 mset("n", ",", "<Cmd>vnew<CR>")
+-- New tab shortcut
+mset("n", "gn", "<Cmd>tabnew<CR>")
 -- Fast previous buffer
 mset("n", "<Leader><Leader>", "<c-^>")
 -- <C-n> out of insert mode in :terminal

@@ -1,7 +1,11 @@
+local textwidth = function()
+    return vim.api.nvim_buf_get_option(0, "textwidth") + 7
+end
+
 require("zen-mode").setup({
     window = {
         backdrop = .8,
-        width = 100,
+        width = textwidth,
     },
     plugins = {
         tmux = { enabled = true },

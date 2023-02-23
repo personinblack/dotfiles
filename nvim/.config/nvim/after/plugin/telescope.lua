@@ -15,6 +15,9 @@ require("telescope").setup {
         },
         preview = {
             treesitter = false,
+        },
+        file_ignore_patterns = {
+            "^.git/"
         }
     },
     pickers = {

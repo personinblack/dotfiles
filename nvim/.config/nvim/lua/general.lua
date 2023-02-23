@@ -8,7 +8,7 @@ vopt.synmaxcol = 180
 vopt.nu = true
 vopt.rnu = true
 -- Visual line limit
-vopt.colorcolumn = "90"
+vopt.colorcolumn = "+0"
 -- Highlight cursor line
 vopt.cursorline = true
 -- Highlight matching brackets/parenthesis
