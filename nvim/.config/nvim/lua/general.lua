@@ -37,6 +37,8 @@ vopt.softtabstop = 4
 vopt.shiftwidth = 0
 -- Tabs to spaces by default
 vopt.expandtab = true
+-- Max line length indicator
+vopt.textwidth = 90
 
 
     -- IMPROVEMENTS
