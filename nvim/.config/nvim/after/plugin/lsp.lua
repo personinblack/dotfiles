@@ -44,7 +44,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>f", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>rr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
     -- Format command
     vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
