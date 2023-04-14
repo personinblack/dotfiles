@@ -5,25 +5,6 @@ require("neodev").setup()
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-    "sumneko_lua",
-})
-
--- Fix Undefined global "vim"
-lsp.configure("sumneko_lua", {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" }
-            },
-            workspace = {
-                checkThirdParty = false
-            }
-        }
-    }
-})
-
-
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
