@@ -1,0 +1,54 @@
+#!/bin/fish
+
+if test -z $argv[1]
+  echo '$ tracklister myfile.mkv'
+  exit 1
+end
+
+printf "Tracknum: %-9s, %-16s, %-10s, %s\n" Tracktype CodecID Lang Name
+echo '---------------------------------------------------------'
+mkvinfo $argv[1] | awk '
+  # "Tracks" block ended.
+  /^\|\+ \w+/ {
+    if (Start)
+      End = 1
+  }
+
+  # "Tracks" block started.
+  /\|\+ Tracks/ { Start = 1 }
+
+  # "Track number" minus trailing bracket. 0 for VIDEO for example.
+  /Track number:/ { Tracknum = substr($NF, 0, length($NF) - 1) }
+
+  # "Track type" like "VIDEO", "AUDIO", "SUBTITLES".
+  /Track type:/ { Tracktype = toupper($NF) }
+
+  # "Name" like "English Forced".
+  /Name:/ { Name = $NF }
+
+  # "Language" like "eng", "en", "tur".
+  /Language/ { Lang = toupper($NF) }
+
+  # "Codec ID" like "A_AAC", "V_MPEGH/ISO/HEVC".
+  /Codec ID:/ { CodecID = $NF }
+
+  # Beginning of a "Track".
+  /Track\s*$/ {
+    Count += 1;
+    IsTrack = 1
+  }
+
+  {
+    # At the beginning of a "Track" or end of "Tracks" block, print last "Track".
+    if ((IsTrack || End) && Count > 1 && CodecID != "S_HDMV/PGS")
+      # print "Track " Tracknum ": " Tracktype ", " CodecID ", " Lang ", " Name
+      printf "Track %02d: %-9s, %-16s, %-10s, %s\n", Tracknum, Tracktype, CodecID, Lang, Name
+
+    # Exit after "Tracks" block ended.
+    if (End)
+      exit 0
+
+    # Reset variable.
+    IsTrack = 0
+  }
+'
