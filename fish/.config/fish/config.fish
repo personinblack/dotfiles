@@ -120,6 +120,7 @@ set -xg _JAVA_OPTIONS -Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 set -xg NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME"/npm/npmrc
 set -xg DVDCSS_CACHE "$XDG_DATA_HOME"/dvdcss
 set -xg W3M_DIR "$XDG_CONFIG_HOME/w3m"
+set -xg WGETRC "$XDG_CONFIG_HOME/wgetrc"
 
 alias tmux "tmux -f $HOME/.config/tmux/tmux.conf"
 alias nvidia-settings "nvidia-settings --config=$XDG_CONFIG_HOME/nvidia/settings"
