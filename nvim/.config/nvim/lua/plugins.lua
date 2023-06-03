@@ -1,72 +1,73 @@
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require("packer").startup(function(use)
-    -- Packer can manage itself
-    use "wbthomason/packer.nvim"
-
-
+require("lazy").setup({
         -- UI Stuff
     -- Colors
-    use "savq/melange"
+    "savq/melange",
     -- Incremental syntax parsing
-    use {
+    {
         "nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require("nvim-treesitter.install")
-                .update({ with_sync = true })
-            ts_update()
-        end,
-    }
+        build = ":TSUpdate",
+    },
     -- Zen mode with dim
-    use "folke/zen-mode.nvim"
-    use "folke/twilight.nvim"
+    "folke/zen-mode.nvim",
+    "folke/twilight.nvim",
     -- Git signs
-    use "lewis6991/gitsigns.nvim"
+    "lewis6991/gitsigns.nvim",
     -- Indent guides
-    use "lukas-reineke/indent-blankline.nvim"
+    "lukas-reineke/indent-blankline.nvim",
 
 
         -- Usability Stuff
     -- Telescope
-    use {
+    {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "natecraddock/telescope-zf-native.nvim" -- Search with file names prioritized
         },
-    }
+    },
     -- Undo tree like nerdtree
-    use "mbbill/undotree"
+    "mbbill/undotree",
     -- Comments
-    use "numToStr/Comment.nvim"
+    "numToStr/Comment.nvim",
     -- Surroundings
-    use "tpope/vim-surround"
+    "tpope/vim-surround",
     -- Current project root
-    use "airblade/vim-rooter"
+    "airblade/vim-rooter",
     -- Editorconfig
-    use "editorconfig/editorconfig-vim"
+    "editorconfig/editorconfig-vim",
     -- Vim Tmux integration
-    use "christoomey/vim-tmux-navigator"
+    "christoomey/vim-tmux-navigator",
     -- File manager
-    use "nvim-tree/nvim-tree.lua"
+    "nvim-tree/nvim-tree.lua",
     -- Auto close delimiters
-    use "raimondi/delimitmate"
+    "raimondi/delimitmate",
     -- Tab out of delimiters
-    use {
+    {
         "abecodes/tabout.nvim",
-        requires = "nvim-treesitter",
-        after = "nvim-cmp"
-    }
+        dependencies = { "nvim-treesitter" },
+    },
     -- Floating terminals for lazygit and similar
-    use { "akinsho/toggleterm.nvim", tag = "2.3.0" }
+    { "akinsho/toggleterm.nvim", tag = "2.3.0" },
 
 
         -- LSP
     -- LSP Zero
-    use {
+    {
         "VonHeikemen/lsp-zero.nvim",
-        requires = {
+        dependencies = {
                 -- LSP Support
             -- Official LSP configurations
             "neovim/nvim-lspconfig",
@@ -92,5 +93,5 @@ return require("packer").startup(function(use)
             "jose-elias-alvarez/null-ls.nvim",
             "jay-babu/mason-null-ls.nvim",
         }
-    }
-end)
+    },
+})
