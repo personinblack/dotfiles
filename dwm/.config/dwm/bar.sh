@@ -1,37 +1,57 @@
-SEPERATOR=" ▓"
-BAR="$USER@$(cat /etc/hostname)$SEPERATOR"
+#!/bin/bash
+
+SEPERATOR=" }~{ "
+BAR=""
 
 mod_volume() {
   mute=$(pactl list sinks | awk '/^\sMute/ {print $2}')
   if [[ $mute == "yes" ]]; then
-    echo ""
+    VOL="NA%"
   else
-    echo $(pactl list sinks | awk '/^\sVolume/ {print $5}')
+    VOL="$(pactl list sinks | awk '
+      /^\sState/ {
+        State = $2
+      }
+      /^\sName/ {
+        if ($2 == "easyeffects_sink")
+          State = "NOT"
+      }
+      /^\sMute/ {
+        Muted = $2
+      }
+
+      /^\sVolume/ {
+        if (State == "RUNNING")
+          if (Muted == "no")
+            print $5 " "
+          else
+            print "NA% "
+      }
+    ')"
   fi
+
+  if [[ $VOL == "" ]]; then
+    VOL="NA%"
+  fi
+
+  echo $VOL
 }
 
 mod_temp() {
   temp=$(sensors acpitz-acpi-0 | awk '{ if(NR==5) { print($2++) } }')
-  if (( "$temp" >= 70 )); then
-    echo "$temp°C"
-  else
-    echo ""
-  fi
+  echo "$temp°C"
 }
 
 mod_date() {
   echo $(date "+%a %d %b %Y %R:%S")
 }
 
-MODS=($(mod_temp) "$(mod_date)" $(mod_volume))
-
-for mod in "${MODS[@]}"; do
-  if [[ $mod == "" ]]; then
-    continue
+mod_playing() {
+  if ! playerctl status >> /dev/null; then
+    echo "NA by NA"
+  else
+    echo $(playerctl metadata title) by $(playerctl metadata artist)
   fi
+}
 
-  BAR+="$mod"
-  BAR+=$SEPERATOR
-done
-
-xsetroot -name "${BAR%$SEPERATOR*}"
+xsetroot -name "$(mod_playing) :: $(mod_volume) :: $(mod_date) :: $(mod_temp)"
