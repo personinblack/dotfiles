@@ -27,6 +27,8 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim",
     -- Indent guides
     "lukas-reineke/indent-blankline.nvim",
+    -- Markdown preview
+    "ellisonleao/glow.nvim",
 
 
         -- Usability Stuff
@@ -93,5 +95,20 @@ require("lazy").setup({
             "jose-elias-alvarez/null-ls.nvim",
             "jay-babu/mason-null-ls.nvim",
         }
+    },
+
+        -- Others
+    -- VimWiki
+    {
+        "vimwiki/vimwiki",
+        init = function()
+            vim.cmd("filetype plugin on")
+            vim.g.vimwiki_list = {
+                {
+                    path = "~/docs/wiki/",
+                    syntax = "markdown", ext = ".md",
+                },
+            }
+        end
     },
 })
