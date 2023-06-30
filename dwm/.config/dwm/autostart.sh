@@ -12,5 +12,5 @@ playerctld &
 while :
 do
   sh -c $HOME/.config/dwm/bar.sh
-  sleep 1
+  sleep 0.5
 done
