@@ -26,6 +26,7 @@ gitsigns.setup {
     end,
     on_attach = function(bufnr)
         local opts = { buffer = bufnr, remap = false }
+        vim.keymap.set("n", "gu", gitsigns.reset_hunk, opts)
         vim.keymap.set("n", "gp", gitsigns.preview_hunk, opts)
         vim.keymap.set("n", "[h", gitsigns.prev_hunk, opts)
         vim.keymap.set("n", "]h", gitsigns.next_hunk, opts)
