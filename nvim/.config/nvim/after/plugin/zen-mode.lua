@@ -14,7 +14,7 @@ require("zen-mode").setup({
 
 require("twilight").setup({
     dimming = {
-        alpha = 0.5,
+        alpha = 0.75,
         inactive = true,
     },
     context = 20,
