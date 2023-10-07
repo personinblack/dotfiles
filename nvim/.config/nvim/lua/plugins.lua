@@ -63,6 +63,8 @@ require("lazy").setup({
     },
     -- Floating terminals for lazygit and similar
     { "akinsho/toggleterm.nvim", tag = "2.3.0" },
+    -- Save as ROOT
+    "https://github.com/lambdalisue/suda.vim",
 
 
         -- LSP
