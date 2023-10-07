@@ -40,7 +40,7 @@ mkvinfo $argv[1] | awk '
 
   {
     # At the beginning of a "Track" or end of "Tracks" block, print last "Track".
-    if ((IsTrack || End) && Count > 1 && CodecID != "S_HDMV/PGS")
+    if ((IsTrack || End) && Count > 1)
       # print "Track " Tracknum ": " Tracktype ", " CodecID ", " Lang ", " Name
       printf "Track %02d: %-9s, %-16s, %-10s, %s\n", Tracknum, Tracktype, CodecID, Lang, Name
 
