@@ -104,13 +104,27 @@ require("lazy").setup({
     {
         "vimwiki/vimwiki",
         init = function()
-            vim.cmd("filetype plugin on")
             vim.g.vimwiki_list = {
                 {
-                    path = "~/docs/wiki/",
-                    syntax = "markdown", ext = ".md",
+                    path = "~/projects/wiki/",
+                    syntax = "markdown", ext = ".md"
                 },
             }
+            vim.g.vimwiki_key_mappings = {
+                headers = 0
+            }
+            vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+                pattern = {"*.md"},
+                callback = function()
+                    vim.opt_local.autowrite = true
+                    vim.opt_local.autowriteall = true
+                    vim.opt_local.autoread = true
+                end
+            })
+            vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "TextChangedI"}, {
+                pattern = {"*.md"},
+                command = ":w"
+            })
         end
     },
 })
