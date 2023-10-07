@@ -15,8 +15,8 @@ mset("v", "J", ":m '>+1<CR>gv=gv")
 mset("v", "K", ":m '<-2<CR>gv=gv")
 
 -- New pane shortcuts
-mset("n", "-", "<Cmd>new<CR>")
-mset("n", ",", "<Cmd>vnew<CR>")
+mset("n", "-", "<Cmd>split<CR>")
+mset("n", ",", "<Cmd>vsplit<CR>")
 -- New tab shortcut
 mset("n", "gn", "<Cmd>tabnew<CR>")
 -- Fast previous buffer
