@@ -15,7 +15,7 @@ vopt.cursorline = true
 vopt.showmatch = true
 -- Show invisible characters
 vopt.list = true
-vopt.listchars:append("tab:⭾.")
+vopt.listchars:append("tab:  ")
 vopt.listchars:append("trail:·")
 vopt.listchars:append("extends:»")
 vopt.listchars:append("precedes:«")
