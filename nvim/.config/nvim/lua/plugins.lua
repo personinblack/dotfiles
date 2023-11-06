@@ -34,7 +34,7 @@ require("lazy").setup({
         -- Usability Stuff
     -- Telescope
     {
-        "nvim-telescope/telescope.nvim", tag = "0.1.0",
+        "nvim-telescope/telescope.nvim", tag = "0.1.4",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "natecraddock/telescope-zf-native.nvim" -- Search with file names prioritized
