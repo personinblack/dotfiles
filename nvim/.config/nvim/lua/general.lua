@@ -26,8 +26,6 @@ vopt.listchars:append("nbsp:░")
 vopt.scrolloff = 10
 -- Hide search results
 vopt.hlsearch = false
--- Status line
-vopt.statusline = "%<%f %m%=%-7.(%c%)  %P"
 
 
     -- CODE STYLE
