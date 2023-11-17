@@ -139,7 +139,7 @@ end
 #       "' BEAUTY '" {{{
 
 
-set lucid_skip_newline true
+set --global hydro_symbol_prompt "»"
 
 # }}}
 
