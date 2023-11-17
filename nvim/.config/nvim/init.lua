@@ -11,6 +11,160 @@ local function mset(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+--      "' IMPROVEMENTS '" {{{
+
+
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Keep undo history
+vim.opt.undofile = true
+---@diagnostic disable-next-line: assign-type-mismatch
+vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo"
+vim.opt.swapfile = false
+vim.opt.backup = false
+
+-- Case insensitive search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Natural split behavior
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- Update faster
+vim.opt.updatetime = 50
+
+-- Wait shorter for additional keypresses
+vim.opt.timeoutlen = 500
+
+-- Auto remove trailing whitespace
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = group,
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
+})
+
+-- }}}
+
+--      "' KEYMAPS '" {{{
+
+
+vim.g.mapleader = " "
+
+-- Ctrl-[d/u] center screen
+mset("n", "<C-d>", "<C-d>zz")
+mset("n", "<C-u>", "<C-u>zz")
+
+-- n/N center screen
+mset("n", "n", "nzzzv")
+mset("n", "N", "Nzzzv")
+
+-- Switch current line
+mset("v", "J", ":m '>+1<CR>gv=gv")
+mset("v", "K", ":m '<-2<CR>gv=gv")
+
+-- New pane shortcuts
+mset("n", "-", "<Cmd>split<CR>")
+mset("n", ",", "<Cmd>vsplit<CR>")
+
+-- New tab shortcut
+mset("n", "gn", "<Cmd>tabnew<CR>")
+
+-- Fast previous buffer
+mset("n", "<Leader><Leader>", "<c-^>")
+
+-- <C-n> out of insert mode in :terminal
+mset("t", "<C-n>", "<C-\\><C-n>")
+
+-- Copy into clipboard
+mset({ "n", "v" }, "<leader>y", [["+y]])
+mset("n", "<leader>Y", [["+Y]])
+
+-- Pardon my language
+vim.opt.langmap = {
+    "ç>",
+    "ö<",
+    "ğ[",
+    "ü]",
+    "Ğ{",
+    "Ü}",
+}
+mset("", "ç", ">", { remap = true })
+mset("", "ö", "<", { remap = true })
+mset("", "ğ", "[", { remap = true })
+mset("", "ü", "]", { remap = true })
+mset("", "Ğ", "{", { remap = true })
+mset("", "Ü", "}", { remap = true })
+
+-- }}}
+
+--      "' VISUAL STUFF '" {{{
+
+
+-- Colorscheme
+vim.opt.termguicolors = true
+vim.cmd("colorscheme melange")
+-- vim.cmd("colorscheme candle-grey-transparent")
+
+-- Max length for syntax highlighting
+vim.opt.synmaxcol = 180
+
+-- Relative line numbers
+vim.opt.nu = true
+vim.opt.rnu = true
+
+-- Visual line limit
+vim.opt.colorcolumn = "+0"
+
+-- Highlight cursor line
+vim.opt.cursorline = true
+
+-- Highlight matching brackets/parenthesis
+vim.opt.showmatch = true
+
+-- Show invisible characters
+vim.opt.list = true
+vim.opt.listchars:append("tab:  ")
+vim.opt.listchars:append("trail:·")
+vim.opt.listchars:append("extends:»")
+vim.opt.listchars:append("precedes:«")
+vim.opt.listchars:append("nbsp:░")
+
+-- Make some space around cursor
+vim.opt.scrolloff = 10
+
+-- Hide search results
+vim.opt.hlsearch = false
+
+-- Statusline
+vim.opt.statusline = " %<"
+.. "%f"
+.. "%0( :: %{get(b:, 'gitsigns_status', '')}%)"
+.. " %m"
+.. "%="
+.. "%c%V"
+.. " :: %P/%L"
+.. " :: %{&et ? 's' : 't'}"
+
+-- }}}
+
+--      "' CODE STYLE '" {{{
+
+
+-- Default tab sizes
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 0
+
+-- Tabs to spaces by default
+vim.opt.expandtab = true
+
+-- Max line length indicator
+vim.opt.textwidth = 90
+
+-- }}}
 
 --      "' PLUGINS '" {{{
 
@@ -456,159 +610,5 @@ cmp.setup({
 })
 
 -- }}}
-
--- }}}
-
---      "' VISUAL STUFF '" {{{
-
-
--- Colorscheme
-vim.opt.termguicolors = true
-vim.cmd("colorscheme melange")
-
--- Max length for syntax highlighting
-vim.opt.synmaxcol = 180
-
--- Relative line numbers
-vim.opt.nu = true
-vim.opt.rnu = true
-
--- Visual line limit
-vim.opt.colorcolumn = "+0"
-
--- Highlight cursor line
-vim.opt.cursorline = true
-
--- Highlight matching brackets/parenthesis
-vim.opt.showmatch = true
-
--- Show invisible characters
-vim.opt.list = true
-vim.opt.listchars:append("tab:  ")
-vim.opt.listchars:append("trail:·")
-vim.opt.listchars:append("extends:»")
-vim.opt.listchars:append("precedes:«")
-vim.opt.listchars:append("nbsp:░")
-
--- Make some space around cursor
-vim.opt.scrolloff = 10
-
--- Hide search results
-vim.opt.hlsearch = false
-
--- Statusline
-vim.opt.statusline = " %<"
-.. "%f"
-.. "%0( :: %{get(b:, 'gitsigns_status', '')}%)"
-.. " %m"
-.. "%="
-.. "%c%V"
-.. " :: %P/%L"
-.. " :: %{&et ? 's' : 't'}"
-
--- }}}
-
---      "' CODE STYLE '" {{{
-
-
--- Default tab sizes
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 0
-
--- Tabs to spaces by default
-vim.opt.expandtab = true
-
--- Max line length indicator
-vim.opt.textwidth = 90
-
--- }}}
-
---      "' IMPROVEMENTS '" {{{
-
-
--- Disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- Keep undo history
-vim.opt.undofile = true
----@diagnostic disable-next-line: assign-type-mismatch
-vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo"
-vim.opt.swapfile = false
-vim.opt.backup = false
-
--- Case insensitive search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Natural split behavior
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-
--- Update faster
-vim.opt.updatetime = 50
-
--- Wait shorter for additional keypresses
-vim.opt.timeoutlen = 500
-
--- Auto remove trailing whitespace
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = group,
-    pattern = "*",
-    command = [[%s/\s\+$//e]],
-})
-
--- }}}
-
---      "' KEYMAPS '" {{{
-
-
-vim.g.mapleader = " "
-
--- Ctrl-[d/u] center screen
-mset("n", "<C-d>", "<C-d>zz")
-mset("n", "<C-u>", "<C-u>zz")
-
--- n/N center screen
-mset("n", "n", "nzzzv")
-mset("n", "N", "Nzzzv")
-
--- Switch current line
-mset("v", "J", ":m '>+1<CR>gv=gv")
-mset("v", "K", ":m '<-2<CR>gv=gv")
-
--- New pane shortcuts
-mset("n", "-", "<Cmd>split<CR>")
-mset("n", ",", "<Cmd>vsplit<CR>")
-
--- New tab shortcut
-mset("n", "gn", "<Cmd>tabnew<CR>")
-
--- Fast previous buffer
-mset("n", "<Leader><Leader>", "<c-^>")
-
--- <C-n> out of insert mode in :terminal
-mset("t", "<C-n>", "<C-\\><C-n>")
-
--- Copy into clipboard
-mset({ "n", "v" }, "<leader>y", [["+y]])
-mset("n", "<leader>Y", [["+Y]])
-
--- Pardon my language
-vim.opt.langmap = {
-    "ç>",
-    "ö<",
-    "ğ[",
-    "ü]",
-    "Ğ{",
-    "Ü}",
-}
-mset("", "ç", ">", { remap = true })
-mset("", "ö", "<", { remap = true })
-mset("", "ğ", "[", { remap = true })
-mset("", "ü", "]", { remap = true })
-mset("", "Ğ", "{", { remap = true })
-mset("", "Ü", "}", { remap = true })
 
 -- }}}
