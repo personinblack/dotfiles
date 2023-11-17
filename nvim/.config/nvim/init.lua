@@ -565,7 +565,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     mset("n", "gd", vim.lsp.buf.definition, lopts)
     mset("n", "K", vim.lsp.buf.hover, lopts)
     mset("n", "gi", vim.lsp.buf.implementation, lopts)
-    mset("n", "<C-k>", vim.lsp.buf.signature_help, lopts)
+    mset("i", "<C-k>", vim.lsp.buf.signature_help, lopts)
     mset("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, lopts)
     mset("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, lopts)
     mset("n", "<leader>wl", function()
