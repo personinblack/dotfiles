@@ -118,6 +118,9 @@ vim.opt.rnu = true
 -- Visual line limit
 vim.opt.colorcolumn = "+0"
 
+-- Show folds at number column
+vim.opt.foldcolumn = "2"
+
 -- Highlight cursor line
 vim.opt.cursorline = true
 
