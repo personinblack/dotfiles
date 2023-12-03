@@ -47,6 +47,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     command = [[%s/\s\+$//e]],
 })
 
+-- Look for modeline only at the beginning of a file
+vim.opt.modelines = 1
+
 -- }}}
 
 --      "' KEYMAPS '" {{{
