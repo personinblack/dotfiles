@@ -59,7 +59,7 @@ cm.Normal      = { fg = c.ffg, bg = c.bbg }
 cm.ColorColumn = { fg = c.nul, bg = c._aa } -- line limit indicator
 cm.CursorLine  = cm.ColorColumn             -- the line we are at
 cm.Folded      = { fg = c.bbg, bg = c._ag }
-cm.MatchParen  = { reverse = true         }
+cm.MatchParen  = { fg = c._bb, bg = c._ad }
 cm.SpecialKey  = { fg = c.bbg, bg = c._bc } -- 
 cm.NonText     = { fg = c._aa, bg = c.bbg } -- bottom of the editor when there is nil
 cm.Visual      = { fg = c.nul, bg = c._ab }
@@ -71,10 +71,10 @@ cm.Whitespace  = { fg = c.nul, bg = c.nul } -- . . . nul means same color as pre
 -- "' Number Column'" {{{
 
 
-cm.DiffAdd        = veryred                    -- TODO: set with gitsigns
-cm.DiffChange     = veryred
-cm.DiffDelete     = veryred
-cm.DiffText       = veryred
+cm.DiffAdd        = { fg = c._be }             -- TODO: set with gitsigns
+cm.DiffChange     = { fg = c._be }
+cm.DiffDelete     = { fg = c._ac }
+cm.DiffText       = { underline = true }       -- im missing this
 cm.LineNr         = { fg = c._ad, bg = c.bbg } -- line numbers
 cm.FoldColumn     = { fg = c._aa, bg = c.bbg }
 cm.SignColumn     = { fg = c._ah, bg = c.bbg }
@@ -134,18 +134,59 @@ cm.Directory = { fg = c._ac, bg = c.nul } -- NvimTree folders
 cm.Pmenu       = { fg = c._bb, bg = c._ab } -- mostly auto completion popup
 cm.PmenuSel    = { reverse = true         }
 cm.NormalFloat = { fg = c.ffg, bg = c._aa }
-cm.FloatBorder = veryred
-cm.FloatTitle  = veryred
+cm.FloatBorder = cm.NormalFloat
+cm.FloatTitle  = cm.NormalFloat
+
+-- }}}
+
+-- "' Syntax '" {{{
+
+
+cm.Comment        = { fg = c._ab }
+cm.Constant       = { fg = c._bc, italic = true }
+cm.String         = { fg = c._bf, italic = true }
+cm.Character      = { fg = c._bf, italic = true }
+cm.Number         = { fg = c._bf, italic = true }
+cm.Boolean        = { fg = c._bf, italic = true }
+cm.Float          = { fg = c._bf, italic = true }
+cm.Identifier     = { fg = c._bc }
+cm.Function       = { fg = c._bc }
+cm.Statement      = { fg = c._ac }
+-- cm.Conditional    = cm.Statement
+-- cm.Repeat         = cm.Statement
+-- cm.Label          = cm.Statement
+cm.Operator       = { fg = c._af }
+-- cm.Keyword        = cm.Statement
+-- cm.Exception      = cm.Statement
+cm.PreProc        = { fg = c._ad }
+-- cm.Include        = cm.PreProc
+-- cm.Define         = cm.PreProc
+-- cm.Macro          = cm.PreProc
+-- cm.PreCondit      = cm.PreProc
+cm.Type           = { fg = c._ag }
+-- cm.StorageClass   = cm.Type
+-- cm.Structure      = cm.Type
+-- cm.Typedef        = cm.Type
+cm.Special        = { fg = c._ae }
+-- cm.SpecialChar    = cm.Special
+-- cm.Tag            = cm.Special
+-- cm.Delimiter      = cm.Special
+-- cm.SpecialComment = cm.Special
+-- cm.Debug          = cm.Special
+cm.Underlined     = { underline = true }
+cm.Ignore         = { fg = c._ab }
+cm.Error          = { bold = true, undercurl = true }
+cm.Todo           = { italic = true }
 
 -- }}}
 
 -- }}}
 
 vim.o.background = "dark"
--- vim.cmd("highlight clear")
--- if vim.fn.exists("syntax_on") then
---     vim.cmd("syntax reset")
--- end
+vim.cmd("highlight clear")
+if vim.fn.exists("syntax_on") then
+    vim.cmd("syntax reset")
+end
 
 -- set highlight groups globally
 for name, color in pairs(cm) do

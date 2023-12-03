@@ -106,8 +106,7 @@ mset("", "Ü", "}", { remap = true })
 
 -- Colorscheme
 vim.opt.termguicolors = true
-vim.cmd("colorscheme melange")
--- vim.cmd("colorscheme candle-grey-transparent")
+vim.cmd("colorscheme c")
 
 -- Max length for syntax highlighting
 vim.opt.synmaxcol = 180
@@ -177,8 +176,6 @@ require "paq" {
     "savq/paq-nvim",
 
         -- UI Stuff
-    -- Colors
-    "savq/melange",
     -- Incremental syntax parsing
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- Indent guides
