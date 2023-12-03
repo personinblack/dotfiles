@@ -6,6 +6,7 @@
 -- GitHub: https://github.com/personinblack/dotfiles
 --
 
+---@diagnostic disable: missing-fields
 local group = vim.api.nvim_create_augroup("13271327", {})
 local function mset(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
@@ -244,7 +245,6 @@ require "paq" {
 -- "' Treesitter '" {{{
 
 
----@diagnostic disable-next-line: missing-fields
 require "nvim-treesitter.configs".setup {
     -- A list of parser names, or "all"
     ensure_installed = {
