@@ -103,7 +103,7 @@ cm.ModeMsg      = { fg = c._ac, bg = c.bbg } -- "-- INSERT --" at the bottom lef
 cm.MoreMsg      = { fg = c._be, bg = c._ab } -- "Press enter to continue" message at cmd
 cm.StatusLine   = { fg = c._af, bg = c.bbg,
                     reverse = true         }
-cm.StatusLineNC = { fg = c._ab, bg = c.bbg }
+cm.StatusLineNC = { fg = c._af, bg = c._aa }
 
 -- }}}
 
