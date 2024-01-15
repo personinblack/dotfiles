@@ -61,7 +61,7 @@ cm.CursorLine  = cm.ColorColumn             -- the line we are at
 cm.Folded      = { fg = c.bbg, bg = c._ag }
 cm.MatchParen  = { fg = c._bb, bg = c._ad }
 cm.SpecialKey  = { fg = c.bbg, bg = c._bc } -- 
-cm.NonText     = { fg = c._aa, bg = c.bbg } -- bottom of the editor when there is nil
+cm.NonText     = { fg = c._ab, bg = c.bbg } -- bottom of the editor when there is nil
 cm.Visual      = { fg = c.nul, bg = c._ab }
 cm.WarningMsg  = { fg = c.bbg, bg = c._ag } -- search hit bottom
 cm.Whitespace  = { fg = c.nul, bg = c.nul } -- . . . nul means same color as preceding
