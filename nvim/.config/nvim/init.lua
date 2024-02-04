@@ -102,6 +102,10 @@ mset("", "ü", "]", { remap = true })
 mset("", "Ğ", "{", { remap = true })
 mset("", "Ü", "}", { remap = true })
 
+mset("n", "<F10>", ":silent make! run<CR>")
+mset("n", "<F9>", ":silent make!<CR>")
+mset("n", "<F8>", ":make!<CR>")
+
 -- }}}
 
 --      "' VISUAL STUFF '" {{{
