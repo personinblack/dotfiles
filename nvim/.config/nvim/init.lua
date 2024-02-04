@@ -174,6 +174,21 @@ vim.opt.expandtab = true
 -- Max line length indicator
 vim.opt.textwidth = 90
 
+-- Auto indent C
+vim.opt.cindent = true
+vim.opt.cinoptions = {"0", "l1", "t0", "g0", "(0"}
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"c", "cpp"},
+    callback = function()
+        vim.opt.expandtab = false
+        vim.opt.shiftwidth = 8
+        vim.opt.tabstop = 8
+        vim.opt.softtabstop = 8
+        vim.opt.textwidth = 80
+    end
+})
+
 -- }}}
 
 --      "' PLUGINS '" {{{
