@@ -561,6 +561,13 @@ mason_lspconfig.setup()
 mason_lspconfig.setup_handlers {
     function (server)
         lspconfig[server].setup {}
+        lspconfig.clangd.setup {
+            cmd = {
+                "clangd",
+                "--all-scopes-completion",
+                "--clang-tidy"
+            }
+        }
     end,
 }
 
