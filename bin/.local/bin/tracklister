@@ -5,7 +5,7 @@ if test -z $argv[1]
   exit 1
 end
 
-printf "Tracknum: %-9s, %-16s, %-10s, %s\n" Tracktype CodecID Lang Name
+printf "Track ##: %-9s, %-16s, %-10s, %s\n" Type Codec Language Name
 echo '---------------------------------------------------------'
 mkvinfo $argv[1] | awk '
   # "Tracks" block ended.
@@ -24,7 +24,7 @@ mkvinfo $argv[1] | awk '
   /Track type:/ { Tracktype = toupper($NF) }
 
   # "Name" like "English Forced".
-  /Name:/ { Name = $NF }
+  /Name:/ { $1=$2=$3=""; Name = substr($0, 4) }
 
   # "Language" like "eng", "en", "tur".
   /Language/ { Lang = toupper($NF) }
