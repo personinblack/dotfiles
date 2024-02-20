@@ -142,7 +142,7 @@ cm.FloatTitle  = cm.NormalFloat
 -- "' Syntax '" {{{
 
 
-cm.Comment        = { fg = c._ab }
+cm.Comment        = { fg = c._ac }
 cm.Constant       = { fg = c._bc, italic = true }
 cm.String         = { fg = c._bf, italic = true }
 cm.Character      = { fg = c._bf, italic = true }
@@ -151,7 +151,7 @@ cm.Boolean        = { fg = c._bf, italic = true }
 cm.Float          = { fg = c._bf, italic = true }
 cm.Identifier     = { fg = c._bc }
 cm.Function       = { fg = c._bc }
-cm.Statement      = { fg = c._ac }
+cm.Statement      = { fg = c._ad }
 -- cm.Conditional    = cm.Statement
 -- cm.Repeat         = cm.Statement
 -- cm.Label          = cm.Statement
