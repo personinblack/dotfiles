@@ -17,14 +17,14 @@ mod_temp() {
 }
 
 mod_date() {
-  echo $(date "+%a %d %b %Y %R:%S")
+  echo $(date "+%^a %d %^b %Y %T")
 }
 
 mod_playing() {
   if ! playerctl status >> /dev/null; then
     echo "NA by NA"
   else
-    echo $(playerctl metadata title) by $(playerctl metadata artist)
+    printf "%.35s%.20s" "$(playerctl metadata title)" " by $(playerctl metadata artist)"
   fi
 }
 
