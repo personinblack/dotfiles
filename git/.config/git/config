@@ -21,5 +21,5 @@
 [format]
   pretty = normal
 [pretty]
-  reverse = "format:%C(5 reverse) %h%d %C(#d3d3d3 italic) \"%s\" %C(7 noitalic) %cr %C(0) @%an %n"
-  normal = "format:%C(5)%h%d %C(#d3d3d3 italic)\"%s\" %C(7 reverse noitalic) %cr %C(5) @%an %n"
+  reverse = "format:%C(5 reverse) %h%d %C(#d3d3d3 italic) \"%s\" %C(7 noitalic) %cr %C(0) @%an %n%b%n"
+  normal = "format:%C(5)%h%d %C(#d3d3d3 italic)\"%s\" %C(7 reverse noitalic) %cr %C(5) @%an %n%b%n"
