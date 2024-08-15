@@ -42,9 +42,8 @@ set -xg IMGUR_XSEL_OPTIONS "-b"
 #       "' SOURCES '" {{{
 
 
-#if type -q thefuck
-#  thefuck --alias | source
-#end
+set -xg RBENV_ROOT "$XDG_DATA_HOME/rbenv"
+eval "$(rbenv init -)"
 
 # }}}
 
@@ -110,8 +109,9 @@ set -xg BUNDLE_USER_CONFIG "$XDG_CONFIG_HOME"/bundle
 set -xg BUNDLE_USER_CACHE "$XDG_CACHE_HOME"/bundle
 set -xg BUNDLE_USER_PLUGIN "$XDG_DATA_HOME"/bundle
 set -xg DOCKER_CONFIG "$XDG_CONFIG_HOME"/docker
-set -xg GEM_HOME "$XDG_DATA_HOME"/gem
-set -xg GEM_SPEC_CACHE "$XDG_CACHE_HOME"/gem
+# BREAKS THINGS WITH RBENV
+# set -xg GEM_HOME "$XDG_DATA_HOME"/gem
+# set -xg GEM_SPEC_CACHE "$XDG_CACHE_HOME"/gem
 #set -xg GNUPGHOME "$XDG_DATA_HOME"/gnupg
 set -xg RUSTUP_HOME "$XDG_DATA_HOME"/rustup
 set -xg GOPATH "$XDG_DATA_HOME"/go
