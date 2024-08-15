@@ -198,8 +198,6 @@ require "paq" {
     "savq/paq-nvim",
 
         -- UI Stuff
-    -- Incremental syntax parsing
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- Indent guides
     "lukas-reineke/indent-blankline.nvim",
     -- Zen mode
@@ -208,6 +206,10 @@ require "paq" {
     "lewis6991/gitsigns.nvim",
 
         -- Usability Stuff
+    -- Incremental syntax parsing
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    -- Auto end for Ruby, Lua, etc.
+    "RRethy/nvim-treesitter-endwise",
     -- Comments
     "numToStr/Comment.nvim",
     -- Surroundings
@@ -215,9 +217,11 @@ require "paq" {
     -- Vim Tmux integration
     "christoomey/vim-tmux-navigator",
     -- Auto close delimiters
-    "raimondi/delimitmate",
+    "windwp/nvim-autopairs",
+    -- Auto close html tags
+    "windwp/nvim-ts-autotag",
     -- Tab out of delimiters
-    "abecodes/tabout.nvim",
+    "kawre/neotab.nvim",
     -- Current project root
     "airblade/vim-rooter",
     -- Save as ROOT
@@ -242,6 +246,8 @@ require "paq" {
     "williamboman/mason-lspconfig.nvim",
     -- Lua Neovim API integration
     "folke/neodev.nvim",
+    -- Formatters
+    "stevearc/conform.nvim",
 
         -- Autocompletion
     -- Sources
@@ -254,6 +260,8 @@ require "paq" {
     -- Snippets
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
+    -- Snippet collection
+    "rafamadriz/friendly-snippets",
 }
 
 -- }}}
@@ -267,7 +275,7 @@ require "paq" {
 require "nvim-treesitter.configs".setup {
     -- A list of parser names, or "all"
     ensure_installed = {
-        "c", "cpp", "lua", "javascript", "go", "java", "python"
+        "c", "cpp", "lua", "javascript", "go", "java", "python", "ruby", "html"
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -299,6 +307,9 @@ require "nvim-treesitter.configs".setup {
             end
         end,
     },
+    endwise = {
+        enable = true,
+    },
 }
 
 -- }}}
@@ -307,7 +318,7 @@ require "nvim-treesitter.configs".setup {
 
 
 local textwidth = function()
-    return vim.api.nvim_buf_get_option(0, "textwidth") + 7
+    return vim.api.nvim_get_option_value("textwidth", {}) + 7
 end
 
 require("zen-mode").setup({
@@ -384,36 +395,89 @@ require("Comment").setup({
 
 -- }}}
 
--- "' delimitMate '" {{{
+-- "' nvim-autopairs '" {{{
 
 
-vim.g.delimitMate_expand_cr = 2
-vim.g.delimitMate_expand_space = 1
+    local autop = require("nvim-autopairs")
+    autop.setup({
+        disable_filetype = { "TelescopePrompt", "spectre_panel" },
+        disable_in_macro = true,  -- disable when recording or executing a macro
+        disable_in_visualblock = false, -- disable when insert after visual block mode
+        disable_in_replace_mode = true,
+        ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
+        enable_moveright = true,
+        enable_afterquote = true,  -- add bracket pairs after quote
+        enable_check_bracket_line = true,  --- check bracket in same line
+        enable_bracket_in_quote = true,
+        enable_abbr = false, -- trigger abbreviation
+        break_undo = true, -- switch for basic rule break undo sequence
+        check_ts = false,
+        map_cr = true,
+        map_bs = true,  -- map the <BS> key
+        map_c_h = false,  -- Map the <C-h> key to delete a pair
+        map_c_w = false, -- map <c-w> to delete a pair if possible
+    })
+
+    local Rule = require("nvim-autopairs.rule")
+    -- local cond = require("nvim-autopairs.conds")
+
+    -- Do CR with angle brackets in .erb
+    autop.add_rule(Rule(
+    ">[%w%s]*$",
+    "^%s*<[/%%]",
+    {
+        "eruby",
+    }
+    ):only_cr():use_regex(true))
 
 -- }}}
 
--- "' Tabout '" {{{
+-- "' nvim-ts-autotag '" {{{
 
 
-require("tabout").setup({
-    tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-    backwards_tabkey = "", -- key to trigger backwards tabout, set to an empty string to disable
-    act_as_tab = true, -- shift content if tab out is not possible
-    act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-    default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-    default_shift_tab = "<C-d>", -- reverse shift default action,
-    enable_backwards = true, -- well ...
-    completion = true, -- if the tabkey is used in a completion pum
-    tabouts = {
-        {open = "'", close = "'"},
-        {open = '"', close = '"'},
-        {open = "`", close = "`"},
-        {open = "(", close = ")"},
-        {open = "[", close = "]"},
-        {open = "{", close = "}"}
+    require('nvim-ts-autotag').setup({
+        opts = {
+            -- Defaults
+            enable_close = true, -- Auto close tags
+            enable_rename = true, -- Auto rename pairs of tags
+            enable_close_on_slash = false -- Auto close on trailing </
+        },
+        -- Also override individual filetype configs, these take priority.
+        -- Empty by default, useful if one of the "opts" global settings
+        -- doesn't work well in a specific filetype
+        per_filetype = {}
+    })
+
+-- }}}
+
+-- "' neotab '" {{{
+
+
+require("neotab").setup({
+    tabkey = "<Tab>",
+    act_as_tab = true,
+    behavior = "nested", ---@type ntab.behavior
+    pairs = { ---@type ntab.pair[]
+        { open = "(", close = ")" },
+        { open = "[", close = "]" },
+        { open = "{", close = "}" },
+        { open = "'", close = "'" },
+        { open = '"', close = '"' },
+        { open = "`", close = "`" },
+        { open = "<", close = ">" },
     },
-    ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-    exclude = {} -- tabout will ignore these filetypes
+    exclude = {},
+    smart_punctuators = {
+        enabled = false,
+        semicolon = {
+            enabled = false,
+            ft = { "cs", "c", "cpp", "java" },
+        },
+        escape = {
+            enabled = false,
+            triggers = {}, ---@type table<string, ntab.trigger>
+        },
+    },
 })
 
 -- }}}
@@ -557,10 +621,13 @@ local lspconfig = require("lspconfig")
 require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup()
+local conform = require("conform")
 
 mason_lspconfig.setup_handlers {
     function (server)
         lspconfig[server].setup {}
+    end,
+    ["clangd"] = function()
         lspconfig.clangd.setup {
             cmd = {
                 "clangd",
@@ -569,6 +636,23 @@ mason_lspconfig.setup_handlers {
             }
         }
     end,
+    ["html"] = function()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+        lspconfig.html.setup {
+            filetypes = { "html", "eruby" },
+            capabilities = capabilities,
+        }
+    end,
+}
+
+lspconfig.solargraph.setup {
+    settings = {
+        solargraph = {
+            useBundler = false,
+            diagnostics = true,
+        }
+    }
 }
 
 -- }}}
@@ -605,10 +689,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
     mset({ "n", "v" }, "<leader>f", vim.lsp.buf.code_action, lopts)
     mset("n", "gr", vim.lsp.buf.references, lopts)
     mset("n", "<leader>F", function()
-      vim.lsp.buf.format { async = true }
+      conform.format { async = true, lsp_fallback = true }
     end, opts)
   end,
 })
+
+-- }}}
+
+-- "' conform '" {{{
+
+
+    conform.setup({
+        format_after_save = {
+            lsp_fallback = false, -- THIS DOES UNWANTED FORMATTING AND FUCK UP EVERYTHING! KEEP IT "false".
+            timeout_ms = 500,
+        },
+        formatters_by_ft = {
+            ruby = { "standardrb" },
+            -- eruby = { "erb_format" },
+        },
+    })
 
 -- }}}
 
@@ -616,10 +716,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 
 local cmp = require("cmp")
+require("luasnip.loaders.from_vscode").lazy_load()
+local luasnip = require("luasnip")
+luasnip.filetype_extend("ruby", {"rails"})
+luasnip.filetype_extend("eruby", {"html"})
 cmp.setup({
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -630,10 +734,10 @@ cmp.setup({
         ["<C-o>"] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
-        { name = "buffer" },
-        { name = "path" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
     })
 })
 
