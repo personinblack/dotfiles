@@ -28,4 +28,8 @@ mod_playing() {
   fi
 }
 
-xsetroot -name "$(mod_playing) :: $(mod_volume) :: $(mod_date) :: $(mod_temp)"
+mod_ip() {
+  ip addr show | awk '/inet / { if (NR > 3) {printf substr($2, 0, length($2) - 3); exit} } '
+}
+
+xsetroot -name "$(mod_playing) :: $(mod_volume) :: $(mod_ip) :: $(mod_date) :: $(mod_temp)"
