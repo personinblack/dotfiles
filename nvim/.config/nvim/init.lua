@@ -248,6 +248,8 @@ require "paq" {
     "folke/neodev.nvim",
     -- Formatters
     "stevearc/conform.nvim",
+    -- Linters
+    "mfussenegger/nvim-lint",
 
         -- Autocompletion
     -- Sources
@@ -623,6 +625,9 @@ local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup()
 local conform = require("conform")
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 mason_lspconfig.setup_handlers {
     function (server)
         lspconfig[server].setup {}
@@ -637,8 +642,6 @@ mason_lspconfig.setup_handlers {
         }
     end,
     ["html"] = function()
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
         lspconfig.html.setup {
             filetypes = { "html", "eruby" },
             capabilities = capabilities,
@@ -647,9 +650,10 @@ mason_lspconfig.setup_handlers {
 }
 
 lspconfig.solargraph.setup {
+    capabilities = capabilities,
     settings = {
         solargraph = {
-            useBundler = false,
+            useBundler = true,
             diagnostics = true,
         }
     }
@@ -706,8 +710,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
         },
         formatters_by_ft = {
             ruby = { "standardrb" },
-            -- eruby = { "erb_format" },
+            eruby = { "erb_format", "rustywind" },
         },
+        formatters = {
+            erb_format = {
+                args = { "--print-width=90", "--stdin" }
+            }
+        }
     })
 
 -- }}}
@@ -761,6 +770,23 @@ cmp.setup.cmdline(":", {
     }
   })
 })
+
+-- }}}
+
+-- "' nvim-lint '" {{{
+
+
+    local lint = require("lint")
+    lint.linters_by_ft = {
+        eruby = {"erb_lint"},
+        html = {"erb_lint"}
+    }
+
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+            lint.try_lint()
+        end,
+    })
 
 -- }}}
 
