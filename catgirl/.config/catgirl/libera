@@ -1,0 +1,7 @@
+sasl-plain = menfie:
+host = irc.libera.chat
+port = 6697
+join = ##hello_world
+nick = menfie
+mode = +iw
+hash = 0,15
