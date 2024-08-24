@@ -12,25 +12,25 @@
 local c = {
     nul = "NONE",
     bbg = "#000000",
-    ffg = "#837e81",
+    ffg = "#ffffff",
 
     -- very dark
-    _aa = "#201e24",
-    _ab = "#2d2b30",
-    _ac = "#3f3d40",
-    _ad = "#413c3e",
-    _ae = "#423e41",
-    _af = "#4e4a4b",
-    _ag = "#6e6765",
-    _ah = "#837e81",
-    _ba = "#837c78",
-    _bb = "#89827d",
-    _bc = "#a7a099",
-    _bd = "#c2bec1",
-    _be = "#c3bcb2",
-    _bf = "#cbc5ba",
-    _bg = "#e3ddd2",
-    _bh = "#efe8dc",
+    _aa = "#1a1a1a",
+    _ab = "#333333",
+    _ac = "#464646",
+    _ad = "#6b6b6b",
+    _ae = "#717171",
+    _af = "#7c7c7c",
+    _ag = "#8a8a8a",
+    _ah = "#b5cabb",
+    _ba = "#999999",
+    _bb = "#adadad",
+    _bc = "#b3b3b3",
+    _bd = "#c0c0c0",
+    _be = "#c4c4c4",
+    _bf = "#eeeeee",
+    _bg = "#f8f8f8",
+    _bh = "#99ac93",
     -- very light
 }
 
@@ -59,7 +59,7 @@ cm.Normal      = { fg = c.ffg, bg = c.bbg }
 cm.ColorColumn = { fg = c.nul, bg = c._aa } -- line limit indicator
 cm.CursorLine  = cm.ColorColumn             -- the line we are at
 cm.Folded      = { fg = c.bbg, bg = c._ag }
-cm.MatchParen  = { fg = c._bb, bg = c._ad }
+cm.MatchParen  = { fg = c._bb, bg = c._ac }
 cm.SpecialKey  = { fg = c.bbg, bg = c._bc } -- 
 cm.NonText     = { fg = c._ab, bg = c.bbg } -- bottom of the editor when there is nil
 cm.Visual      = { fg = c.nul, bg = c._ab }
@@ -130,9 +130,8 @@ cm.Directory = { fg = c._ac, bg = c.nul } -- NvimTree folders
 
 -- "' Popups '" {{{
 
-
-cm.Pmenu       = { fg = c._bb, bg = c._ab } -- mostly auto completion popup
-cm.PmenuSel    = { reverse = true         }
+cm.Pmenu       = { fg = c.bbg, bg = c._af } -- mostly auto completion popup
+cm.PmenuSel    = { fg = c._ba, bg = c._bc }
 cm.NormalFloat = { fg = c.ffg, bg = c._aa }
 cm.FloatBorder = cm.NormalFloat
 cm.FloatTitle  = cm.NormalFloat
