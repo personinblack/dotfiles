@@ -30,7 +30,7 @@ else
   set -xg EDITOR "nvim"
 end
 
-set -xg BAT_THEME "Sublime Snazzy"
+set -xg BAT_THEME "ansi"
 
 set -xg npm_config_prefix $HOME/.local
 
