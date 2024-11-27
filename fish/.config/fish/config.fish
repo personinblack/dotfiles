@@ -14,6 +14,8 @@ if not set -q SSH_AUTH_SOCK
   set -xg SSH_AUTH_SOCK "/run/user/1000/gnupg/S.gpg-agent.ssh"
 end
 
+set -x GPG_TTY (tty)
+
 # }}}
 
 #       "' ENVIRONMENT VARIABLES '" {{{
