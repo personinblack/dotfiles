@@ -8,7 +8,7 @@ mod_volume() {
     VOL="N/A%"
   fi
 
-  echo $VOL
+  echo "$VOL :: "
 }
 
 mod_temp() {
@@ -17,19 +17,26 @@ mod_temp() {
 }
 
 mod_date() {
-  echo $(date "+%^a %d %^b %Y %T")
+  echo "$(date "+%^a %d %^b %H:%M") :: "
 }
 
 mod_playing() {
-  if ! playerctl status >> /dev/null; then
-    echo "NA by NA"
-  else
-    printf "%.35s%.20s" "$(playerctl metadata title)" " by $(playerctl metadata artist)"
+  if playerctl status >> /dev/null; then
+    printf "%.35s%.20s :: " "$(playerctl metadata title)" " by $(playerctl metadata artist)"
   fi
 }
 
 mod_ip() {
-  ip addr show | awk '/inet / { if (NR > 3) {printf substr($2, 0, length($2) - 3); exit} } '
+  if ip link | grep "state UP" >> /dev/null; then
+    echo "CON :: "
+  else
+    echo "DIS :: "
+  fi
 }
 
-xsetroot -name "$(mod_playing) :: $(mod_volume) :: $(mod_ip) :: $(mod_date) :: $(mod_temp)"
+status="$(mod_playing)$(mod_volume)$(mod_ip)$(mod_date)$(mod_temp)"
+
+# convert all to lowercase
+status="$(echo ${status,,})"
+
+xsetroot -name "$status"
