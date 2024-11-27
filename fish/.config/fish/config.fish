@@ -84,7 +84,7 @@ abbr -ag gdi "git diff"
 abbr -ag glo "git log"
 
 alias youtube-dl yt-dlp
-alias sudo doas
+alias doas sudo
 
 # }}}
 
