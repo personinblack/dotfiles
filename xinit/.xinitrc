@@ -46,5 +46,6 @@ fi
 
 xrandr --dpi 127.34
 xsettingsd -c "$HOME/.config/.xsettingsd" &
+copyq &
 
 exec dwm
