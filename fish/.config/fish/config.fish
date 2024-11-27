@@ -141,7 +141,7 @@ end
 #       "' BEAUTY '" {{{
 
 
-set --global hydro_symbol_prompt "»"
+set --global hydro_symbol_prompt "›"
 
 # }}}
 
