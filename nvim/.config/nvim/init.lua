@@ -237,6 +237,8 @@ require "paq" {
     { "akinsho/toggleterm.nvim", tag = "2.3.0" },
     -- Undo tree like nerdtree
     "mbbill/undotree",
+    -- JSX highlighting and indentation
+    "maxmellon/vim-jsx-pretty",
 
         -- LSP
     -- Official LSP configurations
@@ -298,7 +300,7 @@ require "nvim-treesitter.configs".setup {
         -- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = true,
 
         disable = function(_, buf)
             local max_filesize = 100 * 1024 -- 100 KB
@@ -441,8 +443,8 @@ require("Comment").setup({
         opts = {
             -- Defaults
             enable_close = true, -- Auto close tags
-            enable_rename = true, -- Auto rename pairs of tags
-            enable_close_on_slash = false -- Auto close on trailing </
+            enable_rename = false, -- Auto rename pairs of tags
+            enable_close_on_slash = true -- Auto close on trailing </
         },
         -- Also override individual filetype configs, these take priority.
         -- Empty by default, useful if one of the "opts" global settings
@@ -709,8 +711,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
             timeout_ms = 500,
         },
         formatters_by_ft = {
-            ruby = { "standardrb" },
-            eruby = { "erb_format", "rustywind" },
+            ruby = { "rubocop" },
+            eruby = { "rustywind", "rubocop" },
+            javascript = { "prettier" },
+            javascriptreact = { "prettier" },
         },
         formatters = {
             erb_format = {
