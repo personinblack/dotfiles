@@ -50,6 +50,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- Look for modeline only at the beginning of a file
 vim.opt.modelines = 1
 
+-- Disable mouse
+vim.opt.mouse = {}
+
 -- }}}
 
 --      "' KEYMAPS '" {{{
