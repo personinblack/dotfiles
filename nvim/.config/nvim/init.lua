@@ -648,10 +648,18 @@ mason_lspconfig.setup_handlers {
     end,
     ["html"] = function()
         lspconfig.html.setup {
-            filetypes = { "html", "eruby" },
+            filetypes = { "html", "eruby", "php" },
             capabilities = capabilities,
         }
     end,
+    ["phpactor"] = function()
+        lspconfig.phpactor.setup {
+            cmd = {
+                "phpactor",
+                "language-server",
+            }
+        }
+    end
 }
 
 lspconfig.solargraph.setup {
@@ -718,6 +726,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             eruby = { "rustywind", "rubocop" },
             javascript = { "prettier" },
             javascriptreact = { "prettier" },
+            php = { "php_cs_fixer" },
         },
         formatters = {
             erb_format = {
