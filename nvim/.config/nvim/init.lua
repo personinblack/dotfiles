@@ -255,6 +255,8 @@ require "paq" {
     "stevearc/conform.nvim",
     -- Linters
     "mfussenegger/nvim-lint",
+    -- jdtls for Java
+    "mfussenegger/nvim-jdtls",
 
         -- Autocompletion
     -- Sources
@@ -635,7 +637,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 mason_lspconfig.setup_handlers {
     function (server)
-        lspconfig[server].setup {}
+        if server ~= "jdtls" then
+            lspconfig[server].setup {}
+        end
     end,
     ["clangd"] = function()
         lspconfig.clangd.setup {
@@ -671,6 +675,143 @@ lspconfig.solargraph.setup {
         }
     }
 }
+
+local function jdtls_setup(event)
+    local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+    local data_dir = "/tmp/eclipse.jdt.ls/" .. project_name
+
+    local jdtls = require("jdtls")
+
+    local jdtls_dir = require('mason-registry')
+        .get_package('jdtls')
+        :get_install_path()
+
+    local launcher_jar = vim.fn.glob(jdtls_dir .. '/plugins/org.eclipse.equinox.launcher_*.jar')
+
+    -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+    local config = {
+        -- The command that starts the language server
+        -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
+        cmd = {
+
+            -- 💀
+            'java', -- or '/path/to/java21_or_newer/bin/java'
+            -- depends on if `java` is in your $PATH env variable and if it points to the right version.
+
+            '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+            '-Dosgi.bundles.defaultStartLevel=4',
+            '-Declipse.product=org.eclipse.jdt.ls.core.product',
+            '-Dlog.protocol=true',
+            '-Dlog.level=ALL',
+            '-Xmx1g',
+            '--add-modules=ALL-SYSTEM',
+            '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+            '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+
+            -- 💀
+            '-jar', launcher_jar,
+
+            -- 💀
+            '-configuration', jdtls_dir .. '/config_linux',
+
+
+            -- 💀
+            -- See `data directory configuration` section in the README
+            '-data', data_dir
+        },
+
+        -- 💀
+        -- This is the default if not provided, you can remove it. Or adjust as needed.
+        -- One dedicated LSP server & client will be started per unique root_dir
+        --
+        -- vim.fs.root requires Neovim 0.10.
+        -- If you're using an earlier version, use: require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
+        root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew", ".maven", "pom.xml"}),
+
+        capabilities = capabilities,
+
+        flags = {
+            allow_incremental_sync = true,
+        },
+
+        init_options = {
+            extendedClientCapabilities = jdtls.extendedClientCapabilities,
+        },
+
+        -- Here you can configure eclipse.jdt.ls specific settings
+        -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+        -- for a list of options
+        settings = {
+            java = {
+                eclipse = {
+                    downloadSources = true,
+                },
+                maven = {
+                    downloadSources = true,
+                },
+                configuration = {
+                    updateBuildConfiguration = "interactive",
+                    maven = {
+                        -- IMPORTANT: This is necessary because I modify the .m2 path in
+                        -- my settings.xml that is stored in a different location.
+                        -- Without this, the "mvn" command I run in my shell and jdtls
+                        -- run will use different .m2 paths creating conflicts.
+                        userSettings = "/home/menfie/.config/maven/settings.xml"
+                    }
+                },
+                implementationsCodeLens = {
+                    enabled = true,
+                },
+                referencesCodeLens = {
+                    enabled = true,
+                },
+                references = {
+                    includeDecompiledSources = true,
+                },
+                inlayHints = {
+                    enabled = true,
+                },
+                format = {
+                    enabled = true,
+                },
+                import = {
+                    gradle = {
+                        enabled = false,
+                    },
+                    maven = {
+                        enabled = true,
+                    }
+                },
+            },
+            signatureHelp = {
+                enabled = true,
+            },
+            contentProvider = {
+                preferred = "fernflower",
+            },
+            extendedClientCapabilities = jdtls.extendedClientCapabilities,
+            sources = {
+                organizeImports = {
+                    starThreshold = 9999,
+                    staticStarThreshold = 9999,
+                }
+            },
+            codeGeneration = {
+                useBlocks = true,
+            }
+        },
+    }
+    -- This starts a new client & server,
+    -- or attaches to an existing client & server depending on the `root_dir`.
+    jdtls.start_or_attach(config)
+end
+
+vim.api.nvim_create_autocmd('FileType', {
+    group = group,
+    pattern = { 'java' },
+    desc = 'setup jdtls',
+    callback = jdtls_setup,
+})
 
 -- }}}
 
@@ -728,6 +869,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             javascriptreact = { "prettier" },
             php = { "php_cs_fixer" },
             go = { lsp_format = "fallback" },
+            java = { "google-java-format" },
         },
         formatters = {
             erb_format = {
