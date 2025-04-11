@@ -21,7 +21,7 @@ mod_date() {
 }
 
 mod_playing() {
-  if playerctl status >> /dev/null; then
+  if playerctl status >> /dev/null && playerctl metadata title; then
     printf "%.35s%.20s :: " "$(playerctl metadata title)" " by $(playerctl metadata artist)"
   fi
 }
