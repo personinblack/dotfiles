@@ -182,7 +182,7 @@ cm.Type           = { fg = c._be }
 cm.Special        = { fg = c._bf }
 -- cm.SpecialChar    = cm.Special
 -- cm.Tag            = cm.Special
-cm.Delimiter      = { fg = c._ac }
+cm.Delimiter      = { fg = c._ad }
 -- cm.SpecialComment = cm.Special
 -- cm.Debug          = cm.Special
 cm.Underlined     = { underline = true }
