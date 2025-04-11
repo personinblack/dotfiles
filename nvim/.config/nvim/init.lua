@@ -727,6 +727,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             javascript = { "prettier" },
             javascriptreact = { "prettier" },
             php = { "php_cs_fixer" },
+            go = { lsp_format = "fallback" },
         },
         formatters = {
             erb_format = {
