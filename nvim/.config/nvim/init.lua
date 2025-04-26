@@ -257,6 +257,8 @@ require "paq" {
     "mfussenegger/nvim-lint",
     -- jdtls for Java
     "mfussenegger/nvim-jdtls",
+    -- Debugger
+    "mfussenegger/nvim-dap",
 
         -- Autocompletion
     -- Sources
@@ -677,14 +679,13 @@ lspconfig.solargraph.setup {
 }
 
 local function jdtls_setup(event)
+    local masonreg = require("mason-registry")
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
     local data_dir = "/tmp/eclipse.jdt.ls/" .. project_name
 
     local jdtls = require("jdtls")
 
-    local jdtls_dir = require('mason-registry')
-        .get_package('jdtls')
-        :get_install_path()
+    local jdtls_dir = masonreg.get_package('jdtls'):get_install_path()
 
     local launcher_jar = vim.fn.glob(jdtls_dir .. '/plugins/org.eclipse.equinox.launcher_*.jar')
 
@@ -736,6 +737,10 @@ local function jdtls_setup(event)
 
         init_options = {
             extendedClientCapabilities = jdtls.extendedClientCapabilities,
+            bundles = {
+                vim.fn.glob(masonreg.get_package("java-debug-adapter"):get_install_path()
+                    .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+            },
         },
 
         -- Here you can configure eclipse.jdt.ls specific settings
@@ -800,7 +805,19 @@ local function jdtls_setup(event)
                 useBlocks = true,
             }
         },
+        on_attach = function(client, bufnr)
+            if client.name == "jdtls" then
+                jdtls.setup_dap({ hotcodereplace = "auto" })
+                -- Auto-detect main and setup dap config
+                require("jdtls.dap").setup_dap_main_class_configs({
+                    config_overrides = {
+                        vmArgs = "-Dspring.profiles.active=local",
+                    },
+                })
+            end
+        end,
     }
+
     -- This starts a new client & server,
     -- or attaches to an existing client & server depending on the `root_dir`.
     jdtls.start_or_attach(config)
@@ -877,6 +894,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
             }
         }
     })
+
+-- }}}
+
+-- "' nvim-dap '" {{{
+
+
+local dap = require("dap")
+dap.configurations.java = {
+  {
+    type = 'java';
+    request = 'attach';
+    name = "Debug (Attach) - Remote";
+    hostName = "127.0.0.1";
+    port = 5005;
+    debug = {
+        settings = {
+            hotCodeReplace = "auto"
+        }
+    }
+  },
+}
 
 -- }}}
 
