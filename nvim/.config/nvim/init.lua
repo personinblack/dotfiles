@@ -632,7 +632,7 @@ local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup()
 local conform = require("conform")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 mason_lspconfig.setup_handlers {
@@ -889,6 +889,14 @@ local luasnip = require("luasnip")
 luasnip.filetype_extend("ruby", {"rails"})
 luasnip.filetype_extend("eruby", {"html"})
 cmp.setup({
+    matching = {
+      disallow_fuzzy_matching = false,
+      disallow_fullfuzzy_matching = false,
+      disallow_partial_fuzzy_matching = false,
+      disallow_partial_matching = false,
+      disallow_prefix_unmatching = false,
+      disallow_symbol_nonprefix_matching = false,
+    },
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
