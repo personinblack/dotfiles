@@ -756,7 +756,7 @@ local function jdtls_setup(event)
                         -- my settings.xml that is stored in a different location.
                         -- Without this, the "mvn" command I run in my shell and jdtls
                         -- run will use different .m2 paths creating conflicts.
-                        userSettings = "/home/menfie/.config/maven/settings.xml"
+                        userSettings = os.getenv("HOME") .. "/.config/maven/settings.xml"
                     }
                 },
                 implementationsCodeLens = {
