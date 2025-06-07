@@ -242,6 +242,8 @@ require "paq" {
     "mbbill/undotree",
     -- JSX highlighting and indentation
     "maxmellon/vim-jsx-pretty",
+    -- F with 2 chars
+    "justinmk/vim-sneak",
 
         -- LSP
     -- Official LSP configurations
@@ -629,6 +631,19 @@ mset("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 
     require("neodev").setup()
+
+-- }}}
+
+-- "' vim-sneak '" {{{
+
+
+mset({"n", "v"}, "f", "<Plug>Sneak_f")
+mset({"n", "v"}, "F", "<Plug>Sneak_F")
+mset({"n", "v"}, "t", "<Plug>Sneak_t")
+mset({"n", "v"}, "T", "<Plug>Sneak_T")
+
+vim.g["sneak#s_next"] = 1
+vim.g["sneak#prompt"] = "sneak>"
 
 -- }}}
 
