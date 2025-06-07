@@ -329,7 +329,7 @@ require "nvim-treesitter.configs".setup {
 
 
 local textwidth = function()
-    return vim.api.nvim_get_option_value("textwidth", {}) + 7
+    return vim.api.nvim_get_option_value("textwidth", {}) + 8
 end
 
 require("zen-mode").setup({
