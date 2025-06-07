@@ -493,6 +493,13 @@ require("neotab").setup({
 
 -- }}}
 
+-- "' vim-rooter '" {{{
+
+
+vim.g.rooter_patterns = { ".git", "pom.xml" }
+
+-- }}}
+
 -- "' Suda '" {{{
 
 
