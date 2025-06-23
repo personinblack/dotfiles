@@ -942,10 +942,11 @@ vim.api.nvim_create_autocmd('FileType', {
             ruby = { "rubocop" },
             eruby = { "rustywind", "rubocop" },
             javascript = { "prettier" },
-            javascriptreact = { "prettier" },
-            php = { "php_cs_fixer" },
+            javascriptreact = { "prettier", "rustywind" },
             go = { lsp_format = "fallback" },
             java = { "google-java-format" },
+            html = { "prettier", "rustywind" },
+            css = { "prettier" },
         },
         formatters = {
             erb_format = {
