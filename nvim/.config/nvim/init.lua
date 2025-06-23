@@ -645,43 +645,30 @@ vim.g["sneak#prompt"] = "sneak>"
 
 local lspconfig = require("lspconfig")
 require("mason").setup()
-local mason_lspconfig = require("mason-lspconfig")
-mason_lspconfig.setup()
-local conform = require("conform")
+
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-mason_lspconfig.setup_handlers {
-    function (server)
-        if server ~= "jdtls" then
-            lspconfig[server].setup {}
-        end
-    end,
-    ["clangd"] = function()
-        lspconfig.clangd.setup {
-            cmd = {
-                "clangd",
-                "--all-scopes-completion",
-                "--clang-tidy"
-            }
-        }
-    end,
-    ["html"] = function()
-        lspconfig.html.setup {
-            filetypes = { "html", "eruby", "php" },
-            capabilities = capabilities,
-        }
-    end,
-    ["phpactor"] = function()
-        lspconfig.phpactor.setup {
-            cmd = {
-                "phpactor",
-                "language-server",
-            }
-        }
-    end
-}
+vim.lsp.config("clangd", {
+    cmd = {
+        "clangd",
+        "--all-scopes-completion",
+        "--clang-tidy"
+    },
+})
+
+vim.lsp.config("html", {
+    filetypes = { "html", "eruby", "php" },
+    capabilities = capabilities,
+})
+
+vim.lsp.config("phpactor", {
+    cmd = {
+        "phpactor",
+        "language-server",
+    }
+})
 
 lspconfig.solargraph.setup {
     capabilities = capabilities,
@@ -844,6 +831,9 @@ vim.api.nvim_create_autocmd('FileType', {
     desc = 'setup jdtls',
     callback = jdtls_setup,
 })
+
+require("mason-lspconfig").setup()
+local conform = require("conform")
 
 -- }}}
 
