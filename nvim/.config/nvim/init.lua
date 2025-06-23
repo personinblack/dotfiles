@@ -665,8 +665,29 @@ vim.g["sneak#prompt"] = "sneak>"
 
 
 local lspconfig = require("lspconfig")
+local registry = require("mason-registry")
 require("mason").setup()
 
+for _, pkg_name in ipairs {
+    -- languages
+    "gopls", "pyright", "rust-analyzer", "bash-language-server", "clangd", "css-lsp",
+    "html-lsp", "jdtls", "lua-language-server", "typescript-language-server",
+
+    -- formatters
+    "prettier", "eslint", "google-java-format", "rustywind",
+
+    -- debuggers
+    "java-debug-adapter"
+} do
+    local ok, pkg = pcall(registry.get_package, pkg_name)
+    if ok then
+        if not pkg:is_installed() then
+            pkg:install()
+        end
+    else
+        print(pkg_name .. " cannot be found!")
+    end
+end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -853,13 +874,13 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = jdtls_setup,
 })
 
-require("mason-lspconfig").setup()
-local conform = require("conform")
-
 -- }}}
 
 -- "' nvim-lspconfig '" {{{
 
+
+require("mason-lspconfig").setup()
+local conform = require("conform")
 
 local opts = { remap = false }
 mset("n", "<leader>w", vim.diagnostic.open_float, opts)
