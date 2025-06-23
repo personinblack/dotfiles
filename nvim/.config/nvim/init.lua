@@ -443,6 +443,27 @@ require("Comment").setup({
     }
     ):only_cr():use_regex(true))
 
+    -- Auto insert double space inside brackets
+    autop.add_rule(
+        Rule(" ", " ")
+        :with_pair(function(opts)
+            local pair = opts.line:sub(opts.col - 1, opts.col)
+            return vim.tbl_contains({
+                "{}",
+                "()",
+                "[]",
+            }, pair)
+        end)
+        :with_del(function(opts)
+            local pair = opts.line:sub(opts.col - 1, opts.col + 2)
+            return vim.tbl_contains({
+                "{  }",
+                "(  )",
+                "[  ]",
+            }, pair)
+        end)
+    )
+
 -- }}}
 
 -- "' nvim-ts-autotag '" {{{
