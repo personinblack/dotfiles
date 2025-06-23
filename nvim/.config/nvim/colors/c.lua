@@ -190,6 +190,15 @@ cm.Ignore         = { fg = c._ab }
 cm.Error          = { bold = true, undercurl = true }
 cm.Todo           = { fg = c.bbg, bg = c._bh, bold = true }
 
+    -- JSX/HTML fixes
+-- Text surrounded by tags. Like: <p>Text</p>
+cm["@markup.link"]              = cm.Special
+cm["@spell.javascript"]         = cm.Special
+
+-- HTML tags and openers/closers in JSX by default are "special" which is quite bright.
+cm["@tag.delimiter.javascript"] = cm.Delimiter
+cm["@tag.builtin.javascript"]   = cm.Function
+
 -- }}}
 
 -- }}}
