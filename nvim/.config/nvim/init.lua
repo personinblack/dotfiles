@@ -252,7 +252,7 @@ require "paq" {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     -- Lua Neovim API integration
-    "folke/neodev.nvim",
+    "folke/lazydev.nvim",
     -- Formatters
     "stevearc/conform.nvim",
     -- Linters
@@ -627,13 +627,6 @@ mset("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- }}}
 
--- "' neodev '" {{{
-
-
-    require("neodev").setup()
-
--- }}}
-
 -- "' vim-sneak '" {{{
 
 
@@ -889,6 +882,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
       conform.format { async = true, lsp_fallback = true }
     end, opts)
   end,
+})
+
+-- }}}
+
+-- "' lazydev '" {{{
+
+
+vim.api.nvim_create_autocmd('FileType', {
+    group = group,
+    pattern = { 'lua' },
+    desc = 'setup lazydev',
+    callback = require("lazydev").setup,
 })
 
 -- }}}
